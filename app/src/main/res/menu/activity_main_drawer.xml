@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item android:title="Transaction Statement">
+            <menu>
+                <item
+                    android:id="@+id/nav_aeps_transaction_reports"
+                    android:title="Aeps Wallet"
+                    android:visible="false" />
+                <item
+                    android:id="@+id/nav_bill_payment_statement"
+                    android:title="Bill Payment"
+                    android:visible="false" />
+                <item
+                    android:id="@+id/nav_matm_statement"
+                    android:title="Micro Atm"
+                    android:visible="false" />
+                <item
+                    android:id="@+id/nav_dmt_statement"
+                    android:title="Money Transfer"
+                    android:visible="false" />
+                <item
+                    android:id="@+id/nav_statement"
+                    android:title="Recharge" />
+                <item
+                    android:id="@+id/payout_report"
+                    android:title="@string/payout_report"
+                    android:visible="false"/>
+            </menu>
+        </item>
+
+        <item android:title="Fund Request Statement">
+            <menu>
+                <item
+                    android:id="@+id/nav_aeps_wallet_statement"
+                    android:title="Aeps Wallet"
+                    android:visible="false" />
+                <item
+                    android:id="@+id/nav_wallet_request_report"
+                    android:title="@string/main_wallet" />
+            </menu>
+        </item>
+    </group>
+</menu>

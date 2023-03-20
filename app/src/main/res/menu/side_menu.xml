@@ -1,0 +1,42 @@
+<?xml version= "1.0" encoding= "utf-8" ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/commission_structure"
+            android:icon="@drawable/ic_camera_capture_screenshot"
+            android:title="@string/commission_structure" />
+        <item
+            android:id="@+id/certificates"
+            android:icon="@drawable/ic_camera_capture_screenshot"
+            android:title="@string/certificates" />
+        <item
+            android:id="@+id/buy_device"
+            android:icon="@drawable/ic_camera_capture_screenshot"
+            android:title="@string/buy_device" />
+        <item
+            android:id="@+id/download_banners"
+            android:icon="@drawable/ic_camera_capture_screenshot"
+            android:title="@string/download_banners" />
+    </group>
+    <group
+        android:id="@+id/comm"
+        android:title="">
+        <item
+            android:id="@+id/support"
+            android:title="@string/support" />
+        <item
+            android:id="@+id/profile"
+            android:title="@string/profile" />
+        <item
+            android:id="@+id/change_password"
+            android:title="@string/change_password" />
+        <item
+            android:id="@+id/terms_amp_conditions"
+            android:title="@string/terms_amp_conditions" />
+        <item
+            android:id="@+id/logout"
+            android:title="@string/logout" />
+    </group>
+</menu>

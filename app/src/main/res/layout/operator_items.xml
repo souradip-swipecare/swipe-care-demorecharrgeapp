@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="5dp"
+    >
+    <RelativeLayout
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/white_circle_shape"
+        >
+
+        <ImageView
+            android:id="@+id/imageview_operator_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="fitXY" />
+        <TextView
+            android:id="@+id/textview_capital_latter_operator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:text="P"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            />
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/textview_operator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pay2All"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:layout_marginLeft="5dp"
+        />
+</LinearLayout>

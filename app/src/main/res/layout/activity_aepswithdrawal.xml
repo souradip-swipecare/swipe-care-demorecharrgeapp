@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SecondAEPS.AEPS">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="18dp"
+                android:orientation="vertical"
+                android:padding="20dp">
+                <!--            <TextView-->
+                <!--                android:layout_width="wrap_content"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:text="Transaction Type"-->
+                <!--                android:textStyle="bold"-->
+                <!--                android:textSize="18sp"-->
+                <!--                android:layout_marginTop="50dp"-->
+                <!--                />-->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.7"
+                    android:text="@string/cash_withdraw"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Device"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <RadioGroup
+                    android:id="@+id/radiogroup_device"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checkedButton="@+id/radio_mantra"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radio_mantra"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingEnd="20dp"
+                        android:text="@string/mantra" />
+
+                    <RadioButton
+                        android:id="@+id/radio_morpho"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/morpho" />
+                </RadioGroup>
+
+                <EditText
+                    android:id="@+id/edittext_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/icon_shape_color"
+                    android:drawableStart="@drawable/mobile_icon_xml"
+                    android:drawablePadding="@dimen/drawable_padding"
+                    android:hint="@string/mobile_number"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:maxLines="1" />
+
+                <EditText
+                    android:id="@+id/edittext_aadhar_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/icon_shape_color"
+                    android:drawableStart="@drawable/contact"
+                    android:drawablePadding="@dimen/drawable_padding"
+                    android:hint="@string/aadhaar_number"
+                    android:inputType="number"
+                    android:maxLength="12"
+                    android:maxLines="1" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_bank"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/icon_shape_color">
+
+                    <TextView
+                        android:id="@+id/edittext_bank_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:drawableStart="@drawable/bank_icon_in_xml"
+                        android:drawablePadding="@dimen/drawable_padding"
+                        android:hint="@string/select_bank"
+                        android:maxLines="1"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <EditText
+                    android:id="@+id/edittext_amount"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/icon_shape_color"
+                    android:drawableLeft="@drawable/rupees_icon"
+                    android:drawablePadding="@dimen/drawable_padding"
+                    android:hint="Amount"
+                    android:inputType="number"
+                    android:maxLength="6"
+                    android:maxLines="1"
+                    android:visibility="visible" />
+
+                <Button
+                    android:id="@+id/scanFinger"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/button_shape"
+                    android:text="@string/scan_finger"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/button_shape"
+                    android:text="@string/submit"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/textview_response"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+</layout>

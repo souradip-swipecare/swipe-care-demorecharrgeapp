@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.swipecare.payments">
+
+    <queries>
+        <package android:name="com.mantra.rdservice" />
+        <package android:name="com.scl.rdservice" />
+    </queries>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+
+    <uses-feature android:name="android.hardware.location.gps" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/upaylogot"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@drawable/upaylogot"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <!--<provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.providerswipe"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                tools:replace="android:authorities"
+                android:authorities="${applicationId}.providerswipe"
+                android:resource="@xml/filepathsswipe"/>
+        </provider>-->
+        <activity android:name=".transactionReceipts.MiniStatementReceiptActivity" />
+        <activity android:name=".transactionReceipts.CashWithdrawAndBalanceEnquiryReceiptActivity" />
+        <activity android:name=".WalletRequest" />
+        <activity
+            android:name=".TransactionReciept"
+            android:label="Invoice" />
+        <activity android:name=".SecondAEPS.Receipt" />
+        <activity android:name=".SecondAEPS.AEPS" />
+        <activity
+            android:name=".SecondAEPS.AEPSKotlin"
+            android:screenOrientation="portrait" />
+        <activity android:name=".PanCards.PanCardStatement" />
+        <activity android:name=".MoneyTransfer.Transaction" />
+        <activity android:name=".MoneyTransfer.SenderDetailActivity" />
+        <activity
+            android:name=".MoneyTransfer.SenderActivity"
+            android:label="Remitter" />
+        <activity android:name=".PanCards.PanCard" />
+        <activity
+            android:name=".RechargeStatement.Statement"
+            android:label="Recharge Statement" />
+        <activity
+            android:name=".AEPS_Wallet_Request"
+            android:label="AEPS Wallet Request" />
+        <activity
+            android:name=".TransactionReports.TransactionReports"
+            android:label="AEPS Transactions" />
+        <activity
+            android:name=".AEPSWalletRequestReports.AEPSRequests"
+            android:label="AEPS Request Reports" />
+        <activity
+            android:name=".Login"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.FullScreen" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Splash"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".recharges.Mobile_Recharge" />
+        <activity android:name=".recharges.MobileRecharge" />
+        <activity
+            android:name=".recharges.MobileRechargePlansActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".recharges.RechargeOffersActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AEPSMiniStatementActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".recharges.DTH" />
+        <activity android:name=".recharges.Electricity" />
+        <activity
+            android:name=".MoneyTransfer.TransactionStatement.DMTStatement"
+            android:label="DMT Statement" />
+        <activity
+            android:name=".FundReport.FundrequestsReports"
+            android:label="Wallet Request Reports" />
+        <activity
+            android:name=".MoneyTransfer.TransactionReciptDetails.MoneyTransactionReciept"
+            android:label="Invoice" />
+        <activity android:name=".AEPSServices" />
+        <activity
+            android:name=".AEPSWithdrawal"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".payout.SwipePayoutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".payout.SwipePayoutPaymentModeSelectionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".payout.SwipePayoutOtpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".transactionReceipts.ReceiptPayoutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".menuReports.PayoutReportActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".menuReports.AepsReportActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".menuReports.AccountStatementTransactionsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".recharges.WalletTransferActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".bbps.Gas"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Fundpage"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".fund.activity.Bharatutrsubmit"
+            android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

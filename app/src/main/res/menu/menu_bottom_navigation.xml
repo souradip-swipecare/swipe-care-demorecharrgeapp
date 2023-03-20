@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_download"
+        android:title="@string/home" />
+    <item
+        android:id="@+id/my_reports"
+        android:icon="@drawable/electricity_icon"
+        android:title="@string/my_reports" />
+    <item
+        android:id="@+id/wallet"
+        android:icon="@drawable/ic_add"
+        android:title="@string/wallet" />
+    <item
+        android:id="@+id/notifications"
+        android:icon="@drawable/ic_bell"
+        android:title="@string/notifications" />
+
+    <item
+        android:id="@+id/help"
+        android:icon="@drawable/mobile_icon_xml"
+        android:title="@string/help"
+        tools:ignore="AlwaysShowAction" />
+</menu>

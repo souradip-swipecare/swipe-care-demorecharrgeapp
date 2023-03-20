@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/notifications"
+        android:icon="@drawable/ic_bell"
+        android:title="notifications"
+        app:showAsAction="always"
+        android:visible="false"/>
+
+    <item
+        android:id="@+id/actionLogout"
+        android:icon="@drawable/mylogout_24dp"
+        android:orderInCategory="70"
+        android:title="Logout"
+        app:showAsAction="always"
+        android:visible="false"/>
+</menu>

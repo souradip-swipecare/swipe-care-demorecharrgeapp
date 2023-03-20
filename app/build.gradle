@@ -1,0 +1,157 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 33
+    defaultConfig {
+        applicationId "com.mitraa.bingo"
+        minSdkVersion 23
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0.1"
+        multiDexEnabled true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+    lintOptions {
+        disable 'TypographyFractions','TypographyQuotes'
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro', 'coroutines.pro'
+        }
+        debug {
+//            minifyEnabled true
+//            shrinkResources true
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-gson.pro','proguard-rules.pro', 'coroutines.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    packagingOptions {
+        exclude 'AndroidManifest.xml'
+
+        resources.excludes += "DebugProbesKt.bin"
+    }
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+dependencies {
+//    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.6.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+//    implementation files('libs/swipecareaardependency.aar')
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.5.0"
+    implementation "com.squareup.retrofit2:converter-moshi:2.9.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.3"
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation "io.reactivex.rxjava2:rxjava:2.2.10"
+    implementation "io.reactivex.rxjava2:rxandroid:2.1.0"
+    implementation 'org.greenrobot:eventbus:3.1.1'
+    implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.3'
+    implementation 'com.github.bumptech.glide:okhttp3-integration:4.1.1@aar'
+    implementation group: 'commons-codec', name: 'commons-codec', version: '20041127.091804'
+    implementation 'com.budiyev.android:code-scanner:2.1.0'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    kapt 'com.github.bumptech.glide:compiler:4.9.0'
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+//    debugApi files('libs/finosdk_new_uat.aar')
+//    releaseApi files('libs/finosdk_live.aar')
+    implementation 'de.greenrobot:greendao:2.1.0'
+    implementation 'com.karumi:dexter:5.0.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'com.datatheorem.android.trustkit:trustkit:1.0.2'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.6.21"
+    implementation 'com.nineoldandroids:library:2.4.0'
+    implementation 'com.daimajia.slider:library:1.1.5@aar'
+    implementation 'com.squareup.picasso:picasso:2.5.0'
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+    implementation 'org.apache.commons:commons-io:1.3.2'
+    implementation 'org.apache.commons:commons-lang3:3.6'
+    implementation 'commons-codec:commons-codec:20041127.091804'
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.3'
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'com.android.volley:volley:1.2.1'
+    implementation group: 'org.apache.santuario', name: 'xmlsec', version: '2.0.3'
+    implementation group: 'com.sun.xml.security', name: 'xml-security-impl', version: '1.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
+//    implementation project(path: ':epmoneylib-paisanikal')
+    // card view
+    implementation "androidx.cardview:cardview:1.0.0"
+    //noinspection GradleCompatible,GradleCompatible
+    implementation 'com.android.support:design:29.0.0'
+
+    // retrofit
+    implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$version_retrofit"
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    // for moshi
+    implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
+//     Moshi
+    implementation "com.squareup.moshi:moshi:$version_moshi"
+    implementation "com.squareup.moshi:moshi-kotlin:$version_moshi"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$version_retrofit_coroutines_adapter"
+    // coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version_kotlin_coroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version_kotlin_coroutines"
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+    // LiveData
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
+    // Lifecycles only (without ViewModel or LiveData)
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version")
+    // for viewmodel delegates
+    implementation("androidx.core:core-ktx:1.7.0")
+    // viewpager
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
+    // okhttp client
+    implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.3'
+    // Authentication
+    // Java language implementation
+//    implementation "androidx.biometric:biometric:1.1.0"
+    // Kotlin
+    implementation "androidx.biometric:biometric-ktx:1.2.0-alpha04"
+    // simple xml
+    implementation("org.simpleframework:simple-xml:2.7.1") {
+        exclude module: 'stax'
+        exclude module: 'stax-api'
+        exclude module: 'xpp3'
+    }
+    // https://mvnrepository.com/artifact/org.json/json
+//    implementation("org.json:json:20140107")
+    implementation 'androidx.fragment:fragment-ktx:1.4.1'
+
+    implementation files('libs/kycOnboarding.aar')
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.5.0"
+    implementation "io.reactivex.rxjava2:rxandroid:2.1.0"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation "com.karumi:dexter:5.0.0"
+    implementation 'com.github.yalantis:ucrop:2.2.6-native'
+    // neomorphism
+    implementation 'com.github.fornewid:neumorphism:0.2.0'
+
+//    implementation files('libs/java-json.jar')
+    implementation("org.json:json:20140107")
+    implementation 'com.github.javadev:underscore:1.78'
+
+}

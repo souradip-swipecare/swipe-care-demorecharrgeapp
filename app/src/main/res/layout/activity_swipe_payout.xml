@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_color">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar3"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:background="@drawable/header222"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:text="@string/aeps_balance"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linearLayoutCompat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView19">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/rupees" />
+
+            <TextView
+                android:id="@+id/aeps_balance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--    <soup.neumorphism.NeumorphCardView-->
+        <!--        android:layout_width="350dp"-->
+        <!--        android:layout_height="500dp"-->
+        <!--        style="@style/Widget.Neumorph.CardView"-->
+        <!--        app:layout_constraintEnd_toEndOf="parent"-->
+        <!--        app:layout_constraintHorizontal_bias="0.491"-->
+        <!--        app:layout_constraintStart_toStartOf="parent"-->
+        <!--        app:neumorph_backgroundColor="@color/background_color"-->
+        <!--        app:neumorph_shapeType="pressed"-->
+        <!--        tools:layout_editor_absoluteY="115dp">-->
+
+        <!--    </soup.neumorphism.NeumorphCardView>-->
+
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/do_hassle_free_payout_only_on_swipe_care"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/toolbar3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/submit_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView21"
+            app:layout_constraintVertical_bias="0.0">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="340dp"
+                android:layout_height="420dp"
+                android:layout_margin="30dp"
+                android:elevation="30dp"
+                android:outlineSpotShadowColor="@color/colorBlue"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="25dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="260dp"
+                        android:layout_height="46dp"
+                        android:contentDescription="TODO"
+                        android:src="@drawable/headersmall"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView20"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="URGENT PAYOUT"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+                        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+                        app:layout_constraintStart_toStartOf="@+id/imageView5"
+                        app:layout_constraintTop_toTopOf="@+id/imageView5" />
+
+
+                    <soup.neumorphism.NeumorphCardView
+                        android:id="@+id/cs_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView20"
+                        app:layout_constraintVertical_bias="0.0"
+                        app:neumorph_shapeType="basin">
+
+                        <EditText
+                            android:id="@+id/customer_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:autofillHints=""
+                            android:background="@color/transparent"
+                            android:gravity="center"
+                            android:hint="CUSTOMER NAME"
+                            android:inputType="text"
+                            android:padding="12dp"
+                            android:paddingEnd="8dp"
+                            android:textColor="@color/text_color"
+                            android:textColorHint="@color/text_color" />
+
+                    </soup.neumorphism.NeumorphCardView>
+
+                    <soup.neumorphism.NeumorphCardView
+                        android:id="@+id/cs_mobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cs_name"
+                        app:layout_constraintVertical_bias="0.0"
+                        app:neumorph_shapeType="basin">
+
+                        <EditText
+                            android:id="@+id/customer_mobile_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/transparent"
+                            android:gravity="center"
+                            android:hint="@string/customer_mobile"
+                            android:inputType="number"
+                            android:maxLength="10"
+                            android:maxLines="1"
+                            android:padding="12dp"
+                            android:paddingEnd="8dp"
+                            android:textColor="@color/text_color"
+                            android:textColorHint="@color/text_color" />
+
+                    </soup.neumorphism.NeumorphCardView>
+
+                    <soup.neumorphism.NeumorphCardView
+                        android:id="@+id/cs_account"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:layout_marginBottom="176dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cs_mobile"
+                        app:layout_constraintVertical_bias="0.0"
+                        app:neumorph_shapeType="basin">
+
+                        <EditText
+                            android:id="@+id/account_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/transparent"
+                            android:gravity="center"
+                            android:hint="ACCOUNT NO"
+                            android:inputType="number"
+                            android:padding="2dp"
+                            android:paddingEnd="8dp"
+                            android:textColor="@color/text_color"
+                            android:textColorHint="@color/text_color"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                    </soup.neumorphism.NeumorphCardView>
+
+                    <soup.neumorphism.NeumorphCardView
+                        android:id="@+id/cs_ifsc"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:layout_marginBottom="80dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cs_account"
+                        app:layout_constraintVertical_bias="0.0"
+                        app:neumorph_shapeType="basin">
+
+                        <EditText
+                            android:id="@+id/ifsc_code"
+                            android:layout_width="322dp"
+                            android:layout_height="match_parent"
+                            android:autofillHints=""
+                            android:background="@color/transparent"
+                            android:gravity="center"
+                            android:maxLength="11"
+                            android:hint="@string/ifsc_code"
+                            android:padding="12dp"
+                            android:paddingEnd="8dp"
+                            android:textColor="@color/text_color"
+                            android:textColorHint="@color/text_color" />
+
+                    </soup.neumorphism.NeumorphCardView>
+
+                    <soup.neumorphism.NeumorphCardView
+                        android:id="@+id/cs_amount"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cs_ifsc"
+                        app:layout_constraintVertical_bias="0.0"
+                        app:neumorph_shapeType="basin">
+
+                        <EditText
+                            android:id="@+id/amount"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:autofillHints=""
+                            android:background="@color/transparent"
+                            android:gravity="center"
+                            android:hint="AMOUNT"
+                            android:inputType="number"
+                            android:padding="12dp"
+                            android:paddingEnd="8dp"
+                            android:textColor="@color/text_color"
+                            android:textColorHint="@color/text_color" />
+
+                    </soup.neumorphism.NeumorphCardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/circle5"
+            android:layout_width="134dp"
+            android:layout_height="134dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="28dp"
+            android:src="@drawable/circle_transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/submit_button"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <ImageView
+            android:id="@+id/circle3"
+            android:layout_width="182dp"
+            android:layout_height="182dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/circle_transparent"
+            app:layout_constraintStart_toEndOf="@+id/submit_button"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+        <ImageView
+            android:id="@+id/circle4"
+            android:layout_width="134dp"
+            android:layout_height="134dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="200dp"
+            android:layout_marginTop="88dp"
+            android:layout_toLeftOf="@+id/circle3"
+            android:src="@drawable/circle_transparent"
+            app:layout_constraintStart_toEndOf="@+id/circle5"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+        <soup.neumorphism.NeumorphButton
+            android:id="@+id/submit_button"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="56dp"
+            android:gravity="center"
+            android:text="@string/swipepay"
+            android:textColor="@color/text_color"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

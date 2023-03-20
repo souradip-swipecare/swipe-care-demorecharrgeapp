@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <LinearLayout
+                android:id="@+id/pancard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/colorPrimary"
+                android:padding="10dp"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Uti Pancard"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:padding="20dp"
+                    android:textAlignment="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_pancard_detail"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/pancard">
+
+                <EditText
+                    android:id="@+id/edittext_vle_id"
+                    android:background="#00000000"
+                    android:paddingRight="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:hint="Enter vleid"
+                    android:maxLines="1"
+                    android:maxLength="18"
+                    android:inputType="number"
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black_overlay"
+                    />
+
+                <EditText
+                    android:id="@+id/edittext_no_of_tokens"
+                    android:background="#00000000"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:hint="Enter no of tokens"
+                    android:maxLines="1"
+                    android:maxLength="18"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black_overlay"
+                    />
+
+                <EditText
+                    android:id="@+id/textview_amount"
+                    android:background="#00000000"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:hint="Enter amount"
+                    android:maxLines="1"
+                    android:maxLength="18"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:enabled="false"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black_overlay"
+                    />
+
+                <Button
+                    android:textColor="#ffffff"
+                    android:id="@+id/button_purcharge_now"
+                    android:background="@drawable/button_shape"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Purchage Now" />
+            </LinearLayout>
+
+            <RelativeLayout
+                    android:id="@+id/rl_create_utiid"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:layout_below="@+id/pancard"
+                    >
+                    <TextView
+                        android:id="@+id/textview_uttid_message"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:text="Vle id not found, do you like to create new one ?"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textSize="20sp"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        android:layout_below="@+id/textview_uttid_message"
+                        android:layout_marginTop="5dp"
+                        >
+                        <Button
+                            android:id="@+id/button_create"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/button_shape"
+                            android:text="Request For Vle Id"
+                            android:textColor="@color/white"
+                            android:layout_weight="1"
+                            android:layout_marginRight="1dp"
+                            />
+                    </LinearLayout>
+                </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+    <RelativeLayout
+        android:id="@+id/rl_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#131313"
+        android:padding="5dp"
+        android:visibility="gone"
+        >
+        <TextView
+            android:id="@+id/textview_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:layout_centerHorizontal="true"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>

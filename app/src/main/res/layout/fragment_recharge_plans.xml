@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/mobileNumber"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="12dp"-->
+        <!--            android:layout_marginTop="8dp"-->
+        <!--            android:textColor="@color/light_black"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            android:text="Mobile: 8989880808" />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/operator"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="12dp"-->
+        <!--            android:layout_marginTop="8dp"-->
+        <!--            android:textColor="@color/light_black"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/mobileNumber"-->
+        <!--            tools:text="Operator: Airtel" />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/state"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="12dp"-->
+        <!--            android:layout_marginTop="8dp"-->
+        <!--            android:textColor="@color/light_black"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/operator"-->
+        <!--            tools:text="state: Some State" />-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/plansRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/item_recharge_plan" />
+        <!--            app:layout_constraintTop_toBottomOf="@id/state"-->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

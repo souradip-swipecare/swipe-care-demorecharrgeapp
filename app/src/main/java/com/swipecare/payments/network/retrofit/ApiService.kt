@@ -215,7 +215,7 @@ interface SwipeApiService {
         @Query("number") duedate: String,
         @Query("mobile") mobile: String,
         ): Gas
-    @POST("api/android/addfundbharat")
+    @POST("api/android/addfundbharatt")
     suspend fun addfundbharat(
         @Query("user_id") userId: String,
         @Query("apptoken") appToken: String,

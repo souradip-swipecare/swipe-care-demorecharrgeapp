@@ -211,6 +211,8 @@
 # do not obfuscate model classes
 -keep class com.swipecare.payments.da.** { *; }
 -keep class com.swipecare.payments.model.** { *; }
+-keep class com.swipecare.payments.profit.** {*; }
+-keep class com.swipecare.payments.fund.** {*; }
 
 # paysprint
 -keep class com.paysprint.onboardinglib.** { *; }

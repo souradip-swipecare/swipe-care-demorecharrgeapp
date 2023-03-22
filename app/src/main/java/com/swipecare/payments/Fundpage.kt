@@ -157,6 +157,7 @@ class Fundpage : AppCompatActivity() {
                 it.putExtra("qrImage", profitresponse.qrImage )
                 it.putExtra("signature", profitresponse.signature )
                 startActivity(it)
+                finish()
 
             }
         }

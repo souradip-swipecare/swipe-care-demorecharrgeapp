@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     TextView textview_main_balance ;
     TextView textview_aeps_balance;
     TextView today_profit, monthly_profit ;
+    LinearLayout nav_wallet_request_reportt,nav_statementt;
 
 
 
@@ -221,7 +222,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         kyc = findViewById(R.id.kyc);
 
 //        textview_main_balance.setText("" + SharePrfeManager.getInstance(MainActivity.this).mGetMainBalance());
-      //  today_profit.setText("₹ " + SharePrfeManager.getInstance(MainActivity.this).mGetMainBalance());
+        //  today_profit.setText("₹ " + SharePrfeManager.getInstance(MainActivity.this).mGetMainBalance());
 
 
         prepaidRecharge = findViewById(R.id.prepaid_recharge);
@@ -234,7 +235,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(new Intent(MainActivity.this, DTH.class));
             }
         });
-//        swipeWallet = findViewById(R.id.swipe_wallet);
+        nav_wallet_request_reportt = findViewById(R.id.nav_wallet_request_reportt);
+        nav_wallet_request_reportt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, AccountStatementTransactionsActivity.class));
+            }
+        });
+        nav_statementt = findViewById(R.id.nav_statementt);
+        nav_statementt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, TransactionReports.class);
+                intent.putExtra("type", "rechargestatement");
+                startActivity(intent);
+            }
+        });
+        //        swipeWallet = findViewById(R.id.swipe_wallet);
 //        swipeWallet.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -338,12 +355,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             mDemoSlider.addSlider(textSliderView);
             mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Default);
         }
-//        View headerView = navigationView.getHeaderView(0);
-//        textview_name = headerView.findViewById(R.id.textview_name);
-//        textview_mobile = headerView.findViewById(R.id.textview_mobile);
+        View headerView = navigationView.getHeaderView(0);
+        textview_name = headerView.findViewById(R.id.textview_name);
+        textview_mobile = headerView.findViewById(R.id.textview_mobile);
 //
-//        textview_name.setText(SharePrfeManager.getInstance(MainActivity.this).mGetName());
-//        textview_mobile.setText(SharePrfeManager.getInstance(MainActivity.this).mGetMobile());
+        textview_name.setText(SharePrfeManager.getInstance(MainActivity.this).mGetName());
+        textview_mobile.setText(SharePrfeManager.getInstance(MainActivity.this).mGetMobile());
 
         // bottom navigation
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
@@ -409,12 +426,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_wallet_request_report) {
             Intent intent = new Intent(MainActivity.this, AccountStatementTransactionsActivity.class);
 //            intent.putExtra("type", "fundrequest");
-            startActivity(intent);
         } else if (id == R.id.payout_report) {
             Intent intent = new Intent(this, PayoutReportActivity.class);
             startActivity(intent);
             return true;
-        } else if (id == R.id.home) {
+        }  else if (id == R.id.actionLogout) {
+            SharePrfeManager.getInstance(MainActivity.this).mLogout();
+            startActivity(new Intent(MainActivity.this, Login.class));
+            finish();
+            return true;
+        }else if (id == R.id.home) {
             startActivity(new Intent(this, MainActivity.class));
             return true;
         } else if (id == R.id.my_reports) {
@@ -611,7 +632,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                 // TODO: change this later. don't forget
                                 textview_main_balance.setText(" ₹ " + data.getString("mainwallet"));
                                 Log.e("TAG", "onPostExecute: "+textview_main_balance );
-                               // monthly_profit.setText(" ₹ " + data.getString("month"));
+                                // monthly_profit.setText(" ₹ " + data.getString("month"));
                             }
                         }
                     } catch (JSONException e) {
@@ -673,7 +694,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 //Do something with the JSON string
 
-             //   Log.e("data", result);
+                //   Log.e("data", result);
 
                 if (!result.equals("")) {
                     try {

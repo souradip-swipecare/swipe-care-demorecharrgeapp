@@ -3,42 +3,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
-    android:background="@drawable/side_nav_bar"
+    android:background="#4A148C"
     android:gravity="top"
     android:orientation="vertical"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
         android:id="@+id/top_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="140dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="30dp"
         android:layout_gravity="center_horizontal"
-        app:srcCompat="@drawable/ic_camera_capture_screenshot" />
+        app:srcCompat="@drawable/person_icon_black" />
 
     <TextView
+        android:id="@+id/textview_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Pay"
+        android:textStyle="bold"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/black"
-        android:textSize="24sp" />
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp" />
 
     <TextView
+        android:id="@+id/textview_mobile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Name"
+        android:textStyle="bold"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/black"
-        android:textSize="24sp" />
+        android:textColor="@color/white"
+        android:textSize="20sp" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:backgroundTint="@color/green"
-        android:text="@string/upgrade_shop" />
+
 
 </LinearLayout>

@@ -35,7 +35,7 @@ public class TransactionReportsCardAdapter extends RecyclerView.Adapter<Transact
         viewHolder.textview_number.setText(items.getNumber());
         viewHolder.textview_refno.setText(items.getRefno());
         viewHolder.textview_amount.setText(items.getAmount());
-        viewHolder.textview_profit.setText(items.getProfit());
+//        viewHolder.textview_profit.setText(items.getProfit());
         viewHolder.textview_mobile.setText(items.getMobile());
         viewHolder.textview_date.setText(items.getCreated_at());
         viewHolder.textview_status.setText(items.getStatus());

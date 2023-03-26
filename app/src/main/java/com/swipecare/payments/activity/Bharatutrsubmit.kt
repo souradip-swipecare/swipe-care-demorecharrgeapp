@@ -1,4 +1,4 @@
-package com.swipecare.payments.fund.activity
+package com.swipecare.payments.activity
 
 import android.app.ProgressDialog
 import android.content.Intent
@@ -7,6 +7,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Base64
+import android.util.Log
 import android.view.MenuItem
 
 import android.view.View
@@ -18,8 +19,11 @@ import com.swipecare.payments.MainActivity
 import com.swipecare.payments.R
 import com.swipecare.payments.SharePrfeManager
 import com.swipecare.payments.databinding.BharatgatewayqrBinding
+import com.swipecare.payments.fund.Bharatresponse
 import com.swipecare.payments.fund.Bharatverify
+import com.swipecare.payments.model.MobileRechargeResponse
 import com.swipecare.payments.network.retrofit.SwipeApi
+import com.swipecare.payments.profit.Profitresponse
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -78,9 +82,15 @@ class Bharatutrsubmit : AppCompatActivity(){
         }
     }
     private fun initiatebharatTransfer() {
+       // var profitresponse: Profitresponse
+
         coroutineScope.launch {
             try {
-                val profitresponse = SwipeApi.retrofitService.bharatverify(
+                withContext(Dispatchers.Main) {
+                    progressDialog.show()
+                    progressDialog.setCancelable(false)
+                }
+                 var bharatresponse = SwipeApi.retrofitService.bharatverify(
                     Bharatverify(
                         sharedPreferences.mGetUserId(),
                         sharedPreferences.mGetappToken(),
@@ -90,31 +100,31 @@ class Bharatutrsubmit : AppCompatActivity(){
                 )
                 withContext(Dispatchers.Main) {
                     progressDialog.dismiss()
-                    if(profitresponse.status == "ERR") {
-                        binding.textviewMessage.setText(profitresponse.message).toString()
-                        showreponMessage()
-                    }
-                    if(profitresponse.status == "TXN"){
+                    if(bharatresponse.status == "TXN"){
                         val intent = Intent(this@Bharatutrsubmit, MainActivity::class.java)
-
+                        startActivity(intent)
+                        finish()
+                    }else{
+                        if(bharatresponse.status == "ERR") {
+                            binding.textviewMessage.setText(bharatresponse.message).toString()
+                            showErrorMessage()
+                        }
+                        else{
+                            Toast.makeText(
+                                this@Bharatutrsubmit,
+                                "Something went wrong please try again",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
                     }
-                    Toast.makeText(
-                        this@Bharatutrsubmit,
-                        "Something went wrong please try again",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    val intent = Intent(this@Bharatutrsubmit, MainActivity::class.java)
-                    startActivity(intent)
-
-
-
                 }
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
                     progressDialog.dismiss()
+                   // Log.e("errrrrr", "initiatebharatTransfer: ${e}", )
                     Toast.makeText(
                         this@Bharatutrsubmit,
-                        "Error occurred: Something went wrong please try later or Same transaction allowed after 2 min",
+                        "Error occurred: ${e}",
                         Toast.LENGTH_SHORT
                     ).show()
                 }

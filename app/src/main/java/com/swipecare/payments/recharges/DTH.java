@@ -10,6 +10,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -52,15 +54,15 @@ public class DTH extends AppCompatActivity  {
 
     EditText editext_number;
     public static  EditText edittext_amount;
-    Button button_paynow;
+    Button button_paynow,seeOffers,seePlans;
 
     ProgressDialog dialog;
-
+    CardView plancard;
     String username,password,balance,provider="";
 
     public String amount="",number;
     RelativeLayout rl_message;
-    TextView textview_message;
+    TextView textview_message,cname,monthamount,balamnt,plnme;
 
 
     String operator_name;
@@ -97,17 +99,23 @@ public class DTH extends AppCompatActivity  {
             }
         });
 
+
+
         SharedPreferences sharedPreferences = getSharedPreferences("user", Context.MODE_PRIVATE);
         username=sharedPreferences.getString("username","");
         password=sharedPreferences.getString("password","");
         balance=sharedPreferences.getString("balance","");
-
+        plancard = findViewById(R.id.plan_card);
         button_paynow = findViewById(R.id.button_paynow);
         editext_number = findViewById(R.id.edittext_enter_number);
         edittext_amount = (EditText) findViewById(R.id.edittext_amount);
 
         rl_message= findViewById(R.id.rl_message);
         textview_message= findViewById(R.id.textview_message);
+        cname = findViewById(R.id.cname);
+        monthamount = findViewById(R.id.monthamount);
+        balamnt = findViewById(R.id.balamnt);
+        plnme = findViewById(R.id.plnme);
 
 
         ll_operator= findViewById(R.id.ll_operator);
@@ -193,7 +201,121 @@ public class DTH extends AppCompatActivity  {
                 }
             }
         });
+        seeOffers = findViewById(R.id.seeOffers);
+        seeOffers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (DetectConnection.checkInternetConnection(DTH.this)){
+                    number = editext_number.getText().toString();
+                    mDTHRinfo(SharePrfeManager.getInstance(DTH.this).mGetappToken(), SharePrfeManager.getInstance(DTH.this).mGetUserId(),provider,number);
+                    dialog.dismiss();
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(), "No Internet Connection", Toast.LENGTH_SHORT).show();
+                }
+            }
 
+
+        });
+
+
+    }
+
+    private void mDTHRinfo(final  String appToken, final String user_id, final String provider, final String number) {
+        class getJSONData extends AsyncTask<String, String, String> {
+
+            HttpURLConnection urlConnection;
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                dialog=new ProgressDialog(DTH.this);
+                dialog.setMessage("Please wait...");
+                dialog.show();
+                dialog.setCancelable(false);
+            }
+            @Override
+            protected String doInBackground(String... args) {
+
+                StringBuilder result = new StringBuilder();
+
+                try {
+                    URL url = new URL(SharePrfeManager.getInstance(DTH.this).mGetBaseUrl()+"api/android/recharge/dthinfo?apptoken="+appToken+"&user_id="+user_id+"&provider_id="+provider+"&mobileno="+number);
+                    Log.d("nnnnnn", "doInBackground: "+url);
+                    urlConnection = (HttpURLConnection) url.openConnection();
+                    InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        result.append(line);
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    urlConnection.disconnect();
+                }
+                return result.toString();
+            }
+
+            @Override
+            protected void onPostExecute(String result) {
+
+                //Do something with the JSON string
+                dialog.dismiss();
+                Log.d("hhhhh", "onPostExecute: $"+result);
+
+                //  Log.e("data",result);
+                showinfo(result);
+            }
+
+        }
+
+        getJSONData getJSONData=new getJSONData();
+        getJSONData.execute();
+    }
+
+    protected void showinfo( String result) {
+        if(!result.equals("")){
+            try {
+                JSONObject jsonObject = new JSONObject(result);
+                if (!jsonObject.getString("status").isEmpty()){
+                    if (jsonObject.getString("status").equalsIgnoreCase("txn")){
+                        JSONObject userdata = jsonObject.getJSONObject("data");
+                        if(userdata.length() >1) {
+                            cname.setText(userdata.getString("Name"));
+                            monthamount.setText(userdata.getString("Balance"));
+                            balamnt.setText(userdata.getString("Next Recharge Date"));
+                            plnme.setText(userdata.getString("Plan"));
+                            plancard.setVisibility(View.VISIBLE);
+                        }else {
+                            textview_message.setText(userdata.getString("msg"));
+                            rl_message.setVisibility(View.VISIBLE);
+
+                        }
+                    } else if (jsonObject.getString("status").equalsIgnoreCase("err")) {
+                         textview_message.setText(jsonObject.getString("message"));
+                        rl_message.setVisibility(View.VISIBLE);
+                    }
+                    else {
+                        textview_message.setText(jsonObject.getString("Something went wrong please try later"));
+                        rl_message.setVisibility(View.VISIBLE);
+                    }
+                }else{
+                    textview_message.setText("Somwthing wend wrong please try laterr");
+                    rl_message.setVisibility(View.VISIBLE);
+                }
+            }
+            catch (JSONException e)
+            {
+                e.printStackTrace();
+                textview_message.setText("Somwthing wend wrong please try later"+e);
+                rl_message.setVisibility(View.VISIBLE);
+            }
+        }
     }
 
 

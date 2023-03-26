@@ -16,6 +16,7 @@ import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -87,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     TextView textview_main_balance ;
     TextView textview_aeps_balance;
     TextView today_profit, monthly_profit ;
-    LinearLayout nav_wallet_request_reportt,nav_statementt;
+    LinearLayout nav_wallet_request_reportt,nav_statementt,contact_us;
 
 
 
@@ -248,6 +249,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, TransactionReports.class);
                 intent.putExtra("type", "rechargestatement");
+                startActivity(intent);
+            }
+        });
+        contact_us = findViewById(R.id.contact_us);
+        contact_us.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String no = SharePrfeManager.getInstance(MainActivity.this).mGetMobile();
+
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("https://wa.me/91"+no+"?text=Please guide me with my issue"));
                 startActivity(intent);
             }
         });
@@ -705,7 +717,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             String name = userdata.getString("name");
                             String email = userdata.getString("email");
                             String mobile = userdata.getString("mobile");
-                            String mainwallet = userdata.getString("balance");
+                            String mainwallet = userdata.getString("mainwallet");
                             String aepsbalance = userdata.getString("aepsbalance");
                             String role_id = userdata.getString("role_id");
                             String parent_id = userdata.getString("parent_id");
@@ -721,6 +733,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             String bank = userdata.getString("bank");
                             String ifsc = userdata.getString("ifsc");
                             String aepsid = userdata.getString("aepsid");
+
 
                             JSONObject active = jsonObject.getJSONObject("company");
                             String upi_status = active.getString("upi_status");

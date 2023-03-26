@@ -52,6 +52,9 @@
         <activity
             android:name=".SecondAEPS.AEPSKotlin"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ChekcomplainActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".PanCards.PanCardStatement" />
         <activity android:name=".MoneyTransfer.Transaction" />
         <activity android:name=".MoneyTransfer.SenderDetailActivity" />
@@ -150,7 +153,7 @@
             android:name=".Fundpage"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".fund.activity.Bharatutrsubmit"
+            android:name=".activity.Bharatutrsubmit"
             android:screenOrientation="portrait" />
 
         <meta-data

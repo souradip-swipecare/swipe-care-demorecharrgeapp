@@ -6,11 +6,11 @@ data class Bharatresponse(
     @Json(name = "status")
     val status: String,
     @Json(name = "ref_no")
-    val ref_no: String,
+    val ref_no: String? = null,
     @Json(name = "amount")
-    val amount: String,
+    val amount: String? = null,
     @Json(name = "paydate")
-    val paydate: String,
+    val paydate: String? = null,
     @Json(name = "message")
-    val message: String
+    val message: String? = null
 )

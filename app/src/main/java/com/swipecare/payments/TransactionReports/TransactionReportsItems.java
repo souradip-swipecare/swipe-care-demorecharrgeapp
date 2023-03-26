@@ -75,7 +75,7 @@ public class TransactionReportsItems {
     private String profit;
     private String status;
     private TextView complain;
-    private TextView checkstatus;
+    private TextView check_status;
 
 
 

@@ -36,7 +36,7 @@ import java.io.FileNotFoundException
 import java.io.OutputStream
 import java.util.*
 
-class CashWithdrawAndBalanceEnquiryReceiptActivity : AppCompatActivity() {
+class  CashWithdrawAndBalanceEnquiryReceiptActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCashWithdrawReceiptBinding
     private var cashWithdrawResponse: AEPSCashWithdrawResponse? = null
     private var balanceEnquiryResponse: AEPSBalanceEnquiryResponse? = null

@@ -60,6 +60,8 @@
     <string name="customer_mobile">CUSTOMER MOBILE</string>
     <string name="ifsc_code">IFSC CODE</string>
     <string name="account_details">Account Details</string>
+    <string name="Somethinwentwrong">Somethhing Went Wrong</string>
+
     <string name="please_enter_customer_name">Please Enter Customer Name</string>
     <string name="mobile_number_should_be_10_digits">Mobile Number should be 10 digits</string>
     <string name="please_enter_account_number">Please enter account number</string>
@@ -87,10 +89,11 @@
     <string name="fingerprint_scan_successful">Fingerprint scan successful</string>
     <string name="finger_print_scan_failed">Fingerprint scan failed. Please scan your fingers again</string>
     <string name="swipe_care_logo">Swipe Care Logo</string>
-    <string name="addhr_no">Addhr No :</string>
-    <string name="act_bal">Act Bal :</string>
+    <string name="addhr_no">Mobile No :</string>
+    <string name="mobil">Addhr No :</string>
+    <string name="act_bal">Provider</string>
     <string name="cash_withdraw_receipt">Cash Withdraw Receipt</string>
-    <string name="cash_withdraw_caps">CASH WITHDRAW</string>
+    <string name="cash_withdraw_caps">Recharge Recipt</string>
     <string name="balance_enquiry_caps">BALANCE ENQUIRY</string>
     <string name="balance_enquiry_receipt">Balance Enquiry Receipt</string>
     <string name="capture_screenshot">capture_screenshot</string>

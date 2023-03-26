@@ -27,6 +27,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/colorPrimary"
+                    android:visibility="gone"
                     android:orientation="horizontal"
                     android:padding="10dp">
 
@@ -112,7 +113,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="60dp"
                         android:layout_marginTop="20dp"
                         android:orientation="horizontal"
                         android:weightSum="1">
@@ -180,7 +181,7 @@
                     <EditText
                         android:id="@+id/edittext_amount"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="60dp"
                         android:layout_marginTop="20dp"
                         android:background="#00000000"
                         android:hint="Amount"
@@ -195,37 +196,40 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:layout_height="60dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        android:layout_margin="10dp">
 
-                        <TextView
-                            android:id="@+id/seePlans"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layout_weight="1"
-                            android:paddingTop="@dimen/dimen_16dp"
-                            android:text="@string/see_plans"
-                            android:textColor="@color/colorPrimary"
-                            android:textSize="18sp" />
-
-                        <TextView
+                        <Button
                             android:id="@+id/seeOffers"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingTop="@dimen/dimen_16dp"
-                            android:text="@string/see_offers"
-                            android:textColor="@color/colorPrimary"
-                            android:textSize="18sp" />
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="#4A148C"
+                            android:layout_margin="10dp"
+                            android:text="Offers"
+                            android:layout_weight="1"
+                            android:textColor="#ffffff" />
+                        <Button
+                            android:id="@+id/seePlans"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:layout_margin="10dp"
+                            android:background="#4A148C"
+                            android:text="Plans"
+                            android:textColor="#ffffff" />
+
+
                     </LinearLayout>
 
 
                     <Button
                         android:id="@+id/button_paynow"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="20dp"
-                        android:background="@drawable/button_shape"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="10dp"
+                        android:background="#4A148C"
                         android:text="Recharge Now"
                         android:textColor="#ffffff" />
                 </LinearLayout>
@@ -240,7 +244,7 @@
             android:background="#0D83B8"
             android:padding="5dp"
             android:visibility="gone"
-            tools:visibility="visible">
+            >
 
             <TextView
                 android:id="@+id/textview_message"

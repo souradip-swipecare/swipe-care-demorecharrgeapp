@@ -199,7 +199,7 @@ public class TransactionReports extends AppCompatActivity {
                                     items.setId(data.getString("id"));
                                     items.setMobile(data.getString("mobile"));
                                     items.setNumber(data.getString("number"));
-                                    items.setProfit(data.getString("profit"));
+                                    items.setProfit(data.getString("txnid"));
                                     items.setAmount(data.getString("amount"));
                                     items.setRefno(data.getString("refno"));
                                     items.setStatus(data.getString("status"));

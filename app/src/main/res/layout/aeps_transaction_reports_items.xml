@@ -110,6 +110,29 @@
                         android:layout_marginLeft="5dp"
                         />
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Txn No. : "
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"
+                        />
+                    <TextView
+                        android:id="@+id/txnid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="64837635637"
+                        android:layout_below="@+id/textview_beneficiary_name"
+                        android:layout_marginLeft="5dp"
+                        />
+                </LinearLayout>
+
             </LinearLayout>
 
             <RelativeLayout
@@ -128,14 +151,14 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textview_profit"
+                    android:id="@+id/check_status"
                     android:layout_width="10dp"
                     android:layout_height="10dp"
                     android:layout_below="@+id/st_amount"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
                     android:gravity="center"
+                    android:visibility="gone"
                     android:text="Check Status"
                     android:textSize="10dp"
                     android:textStyle="bold" />
@@ -164,7 +187,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="Complaint"
-                android:visibility="visible" />
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/st_status"

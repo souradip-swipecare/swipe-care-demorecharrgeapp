@@ -10,6 +10,7 @@ object Constants {
     const val PERMISSION_REQUEST_CODE = 10
     const val TRANSACTIONS = "transactions"
     const val redColor = "#DC0D36"
+    const val orange = "#FF9800"
     const val colorGreenLight = "#0EC654"
     const val colorBackground = "#C9F0F4"
     const val UPI_ADDMONEY = "profitresponse"

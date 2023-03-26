@@ -8,6 +8,7 @@ import com.swipecare.payments.model.*
 import com.swipecare.payments.model.billlverify.Gas
 import com.swipecare.payments.model.bodypara.CahwithdrawBody
 import com.swipecare.payments.model.bodypara.EnquiryBody
+import com.swipecare.payments.model.dth.Dthinfoores
 import com.swipecare.payments.model.menuReports.aepsReport.AepsReportResponse
 import com.swipecare.payments.model.menuReports.payoutReport.AccountStatementResponse
 import com.swipecare.payments.model.menuReports.payoutReport.PayoutReportResponse
@@ -240,6 +241,30 @@ interface SwipeApiService {
         @Body
         upiverify: Upiverify
     ): Upiverifyres
+    //status
+    @POST("api/android/recharge/status")
+    suspend fun status(
+        @Query("user_id") userId: String,
+        @Query("apptoken") appToken: String,
+        @Query("txnid") txnid: String
+    ): Statusres
+
+    //dth info
+    @POST("api/android/recharge/dthinfo")
+    suspend fun dthinfo(
+        @Query("user_id") userId: String,
+        @Query("apptoken") appToken: String,
+        @Query("provider_id") provider_id: String,
+        @Query("mobileno") mobileno: String
+    ): Dthinfoores
+    //dth plan
+    @POST("api/android/recharge/dthplan")
+    suspend fun dthplan(
+        @Query("user_id") userId: String,
+        @Query("apptoken") appToken: String,
+        @Query("provider_id") provider_id: String,
+        @Query("mobileno") mobileno: String
+    ): Dthinfoores
 
 
 }

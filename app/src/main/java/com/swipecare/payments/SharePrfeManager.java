@@ -48,7 +48,7 @@ public class SharePrfeManager {
         editor.apply();
     }
 
-    public String mGetBaseUrl() {
+    public static String mGetBaseUrl() {
         return "https://rc.quickrc.in/";
     }
 
@@ -133,13 +133,13 @@ public class SharePrfeManager {
         return sharedPreferences.getString("email", "");
     }
 
-    public String mGetUserId() {
+    public  String mGetUserId() {
         SharedPreferences sharedPreferences = mContext.getSharedPreferences(SHARE_PREFRERENCE, 0);
         String userid = sharedPreferences.getString("id", "");
         return userid;
     }
 
-    public String mGetappToken() {
+    public  String mGetappToken() {
         SharedPreferences sharedPreferences = mContext.getSharedPreferences(SHARE_PREFRERENCE, 0);
         String apptoken = sharedPreferences.getString("apptoken", "");
         return apptoken;

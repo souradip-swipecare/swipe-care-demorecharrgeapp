@@ -117,4 +117,7 @@
     <string name="change_password">Change Password</string>
     <string name="terms_amp_conditions"><![CDATA[Terms & Conditions]]></string>
     <string name="logout">Logout</string>
+    <string name="commission">Commission</string>
+    <string name="fetching_commission">Fetching Commission</string>
+    <string name="title_activity_commission">Commision</string>
 </resources>

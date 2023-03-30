@@ -53,6 +53,11 @@
             android:name=".SecondAEPS.AEPSKotlin"
             android:screenOrientation="portrait" />
         <activity
+            android:name="com.swipecare.payments.commision.CommissionActivity"
+            android:exported="false"
+            android:label="@string/title_activity_commission"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".ChekcomplainActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".PanCards.PanCardStatement" />

@@ -5,6 +5,7 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import com.swipecare.payments.fund.*
 import com.swipecare.payments.model.*
+import com.swipecare.payments.model.commision.CommissionDataJson
 import com.swipecare.payments.model.billlverify.Gas
 import com.swipecare.payments.model.bodypara.CahwithdrawBody
 import com.swipecare.payments.model.bodypara.EnquiryBody
@@ -265,8 +266,12 @@ interface SwipeApiService {
         @Query("provider_id") provider_id: String,
         @Query("mobileno") mobileno: String
     ): Dthinfoores
-
-
+    // Commission
+    @GET("api/android/commission")
+    suspend fun getCommissionData(
+        @Query("apptoken") appToken: String,
+        @Query("user_id") userId: String,
+    ): CommissionDataJson
 }
 
 interface PlanApiService {
@@ -285,6 +290,7 @@ interface PlanApiService {
         @Query("operatorcode") operatorCode: String,
     ): OperatorPlan
 
+
     @GET("api/Mobile/RofferCheck")
     suspend fun getRechargeOffers(
         @Query("apimember_id") apiUserId: String,
@@ -292,6 +298,10 @@ interface PlanApiService {
         @Query("mobile_no") mobileNumber: String,
         @Query("operator_code") operatorCode: String,
     ): RoffersResponse
+
+    //commision
+
+
 }
 
 object SwipeApi {

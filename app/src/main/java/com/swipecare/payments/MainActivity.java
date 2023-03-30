@@ -50,6 +50,7 @@ import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
 import com.swipecare.payments.bbps.Gas;
+import com.swipecare.payments.commision.CommissionActivity;
 import com.swipecare.payments.menuReports.AccountStatementTransactionsActivity;
 import com.swipecare.payments.menuReports.AepsReportActivity;
 import com.swipecare.payments.menuReports.PayoutReportActivity;
@@ -107,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     CircleImageView circular_image_profile;
     TextView textview_name, textview_mobile;
 
-    LinearLayout ll_dth, ll_electricity, loadwallet, aepsload;
+    LinearLayout ll_dth, ll_electricity, loadwallet, aepsload,my_commision;
     LinearLayout prepaidRecharge, postPaidRecharge, dthRecharge,  fastTag, electricityBill, prepaidgas;
     //    NestedScrollView nestedScrollView;
     private static final int BIOMETRIC_ENROLLMENT_RESULT = 5;
@@ -221,6 +222,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         balanceEnquiry = findViewById(R.id.balance_enquiry);
         miniStatement = findViewById(R.id.miniStatement);
         kyc = findViewById(R.id.kyc);
+        my_commision = findViewById(R.id.my_commision);
+        my_commision.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CommissionActivity.class);
+                startActivity(intent);
+            }
+        });
 
 //        textview_main_balance.setText("" + SharePrfeManager.getInstance(MainActivity.this).mGetMainBalance());
         //  today_profit.setText("₹ " + SharePrfeManager.getInstance(MainActivity.this).mGetMainBalance());

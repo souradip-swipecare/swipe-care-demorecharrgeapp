@@ -160,6 +160,9 @@
         <activity
             android:name=".activity.Bharatutrsubmit"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".forgetpassword.Forgetpassword"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="preloaded_fonts"

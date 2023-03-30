@@ -10,6 +10,8 @@ import com.swipecare.payments.model.billlverify.Gas
 import com.swipecare.payments.model.bodypara.CahwithdrawBody
 import com.swipecare.payments.model.bodypara.EnquiryBody
 import com.swipecare.payments.model.dth.Dthinfoores
+import com.swipecare.payments.model.forget.Otpforget
+import com.swipecare.payments.model.forget.Otpfrsubmit
 import com.swipecare.payments.model.menuReports.aepsReport.AepsReportResponse
 import com.swipecare.payments.model.menuReports.payoutReport.AccountStatementResponse
 import com.swipecare.payments.model.menuReports.payoutReport.PayoutReportResponse
@@ -272,6 +274,19 @@ interface SwipeApiService {
         @Query("apptoken") appToken: String,
         @Query("user_id") userId: String,
     ): CommissionDataJson
+    //forget passwrd
+//    @GET("api/android/passwordreset")
+//    suspend fun otpsentforget(
+//        @Query("mobile") mobile: String,
+//    ): Otpforget
+    //forget passwrd otp submit
+    @GET("api/android/passwordreset")
+    suspend fun otpsentforgetsubmit(
+        @Query("mobile") mobile: String,
+        @Query("otp") otp: String
+    ): Otpfrsubmit
+    //news
+
 }
 
 interface PlanApiService {

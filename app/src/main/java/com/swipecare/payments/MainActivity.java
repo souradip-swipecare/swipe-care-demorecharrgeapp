@@ -24,6 +24,7 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 
@@ -88,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     TextView textview_main_balance ;
     TextView textview_aeps_balance;
-    TextView today_profit, monthly_profit ;
+    TextView today_profit, monthly_profit,flashnews ;
     LinearLayout nav_wallet_request_reportt,nav_statementt,contact_us;
 
 
@@ -207,13 +208,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         }
 
+
         // Authentication section end
         topLayoutMainDashboard = findViewById(R.id.top_layout_main_dashboard);
 
         textview_main_balance = findViewById(R.id.textview_main_balance);
         today_profit = findViewById(R.id.today_profit);
         monthly_profit = findViewById(R.id.monthly_profit);
-
+        flashnews = findViewById(R.id.flashnews);
 
         textview_add = findViewById(R.id.textview_add);
         textview_aeps_balance = findViewById(R.id.textviewaepsbalance);
@@ -522,8 +524,92 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mGetLoginData(SharePrfeManager.getInstance(MainActivity.this).mGetUsername(), SharePrfeManager.getInstance(MainActivity.this).mGetPassword());
         mGetprofit(SharePrfeManager.getInstance(MainActivity.this).mGetappToken(), SharePrfeManager.getInstance(MainActivity.this).mGetUserId());
         mGetBalance(SharePrfeManager.getInstance(MainActivity.this).mGetappToken(), SharePrfeManager.getInstance(MainActivity.this).mGetUserId());
+        mGetcompanynews(SharePrfeManager.getInstance(MainActivity.this).mGetappToken(), SharePrfeManager.getInstance(MainActivity.this).mGetUserId());
+
 
         checkBiometricSupport();
+    }
+
+    private void mGetcompanynews(final String token, final String userid) {
+        class getJSONData extends AsyncTask<String, String, String> {
+
+
+            HttpURLConnection urlConnection;
+
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+
+            }
+
+            @Override
+            protected String doInBackground(String... args) {
+
+                StringBuilder result = new StringBuilder();
+
+                try {
+                    URL url = new URL(SharePrfeManager.getInstance(MainActivity.this).mGetBaseUrl() + "api/android/company/news?apptoken=" + token + "&user_id=" + userid);
+                    urlConnection = (HttpURLConnection) url.openConnection();
+                    InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        result.append(line);
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    urlConnection.disconnect();
+                }
+
+
+                return result.toString();
+            }
+
+            @Override
+            protected void onPostExecute(String result) {
+
+                //Do something with the JSON string
+                //  Log.e("databgg", result);
+
+                //  System.out.println("balance response : " + result);
+
+                if (!result.equals("")) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(result);
+                        Log.e("TAG", "onPostExecuteee: "+result );
+
+                        if (jsonObject.has("status")) {
+                            if (jsonObject.getString("status").equalsIgnoreCase("txn")) {
+
+                                // TODO: change this later. don't forget
+                                flashnews.setText(jsonObject.getString("news"));
+                                flashnews.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+                                flashnews.setSingleLine(true);
+                                flashnews.setSelected(true);
+                            }
+                        }else {
+                            flashnews.setText("All service working fineee");
+                            flashnews.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+                            flashnews.setSingleLine(true);
+                            flashnews.setSelected(true);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }else {
+                    flashnews.setText("News Will Come soon");
+                    flashnews.setSelected(true);
+                }
+            }
+        }
+
+        getJSONData getJSONData = new getJSONData();
+        getJSONData.execute();
     }
 
     private void mGetprofit(final String token, final String userid) {
@@ -652,7 +738,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                 JSONObject data = jsonObject.getJSONObject("data");
                                 // TODO: change this later. don't forget
                                 textview_main_balance.setText(" ₹ " + data.getString("mainwallet"));
-                                Log.e("TAG", "onPostExecute: "+textview_main_balance );
+                                //Log.e("TAG", "onPostExecute: "+textview_main_balance );
                                 // monthly_profit.setText(" ₹ " + data.getString("month"));
                             }
                         }

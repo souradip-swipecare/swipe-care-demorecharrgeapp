@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -23,6 +22,9 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.airbnb.lottie.LottieAnimationView;
+import com.swipecare.payments.forgetpassword.Forgetpassword;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -48,6 +50,7 @@ public class Login extends AppCompatActivity {
     AlertDialog alertDialog = null;
 
     String username = "";
+    LottieAnimationView lottieAnimationView2,lottieAnimationView3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,6 +150,7 @@ public class Login extends AppCompatActivity {
                     } else {
                         username = edittext_username.getText().toString();
                         mForgotPassword(username);
+
                     }
                 } else {
                     Toast.makeText(Login.this, "No internet connection", Toast.LENGTH_SHORT).show();
@@ -278,7 +282,6 @@ public class Login extends AppCompatActivity {
         getJSONData.execute();
     }
 
-
     //    for forgot password
     private void mForgotPassword(final String username) {
         class getJSONData extends AsyncTask<String, String, String> {
@@ -302,7 +305,7 @@ public class Login extends AppCompatActivity {
                 StringBuilder result = new StringBuilder();
 
                 try {
-                    URL url = new URL(SharePrfeManager.getInstance(Login.this).mGetBaseUrl() + "api/android/auth/reset/request?mobile=" + username);
+                    URL url = new URL(SharePrfeManager.getInstance(Login.this).mGetBaseUrl() + "api/android/passwordreset?mobile=" + username);
                     urlConnection = (HttpURLConnection) url.openConnection();
                     InputStream in = new BufferedInputStream(urlConnection.getInputStream());
 
@@ -346,9 +349,35 @@ public class Login extends AppCompatActivity {
                         }
 
                         if (status.equalsIgnoreCase("txn")) {
-                            mShowOTPDialog();
-                        } else {
+                            Intent intent = new Intent(Login.this, Forgetpassword.class);
+                            intent.putExtra("username",username);
+                            startActivity(intent);
+
+                        } else if(status.equalsIgnoreCase("err")) {
+                            textview_message.setText(message);
+                            rl_message.setVisibility(View.VISIBLE);
+                            rl_message.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Animation a = AnimationUtils.loadAnimation(Login.this, R.anim.animation_down);
+                                    rl_message.setAnimation(a);
+                                    rl_message.clearAnimation();
+                                    rl_message.setVisibility(View.GONE);
+                                }
+                            }, 3000);
                             Toast.makeText(Login.this, message, Toast.LENGTH_SHORT).show();
+                        }else{
+                            textview_message.setText("Something Went Wrong");
+                            rl_message.setVisibility(View.VISIBLE);
+                            rl_message.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Animation a = AnimationUtils.loadAnimation(Login.this, R.anim.animation_down);
+                                    rl_message.setAnimation(a);
+                                    rl_message.clearAnimation();
+                                    rl_message.setVisibility(View.GONE);
+                                }
+                            }, 3000);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -364,16 +393,22 @@ public class Login extends AppCompatActivity {
         getJSONData.execute();
     }
 
-
     protected void mShowOTPDialog() {
-        LayoutInflater inflater2 = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View v2 = inflater2.inflate(R.layout.custome_alert_dialog_for_enter_otp, null);
 
-        final EditText edittext_otp = v2.findViewById(R.id.edittext_otp);
-        final EditText edittext_new_password = v2.findViewById(R.id.edittext_new_password);
+        LayoutInflater inflater2 = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View v2 = inflater2.inflate(R.layout.login_otp_page, null);
+//        LottieAnimationView anim = findViewById(R.id.lottieAnimationView2);
+//        anim.playAnimation();
+
+        final EditText edittext_otp = v2.findViewById(R.id.digit1);
+
         TextView textview_resend_otp = v2.findViewById(R.id.textview_resend_otp);
-        Button button_submit = v2.findViewById(R.id.button_submit);
-        Button button_cancel = v2.findViewById(R.id.button_cancel);
+
+//        final EditText edittext_new_password = v2.findViewById(R.id.edittext_new_password);
+        TextView button_submit = v2.findViewById(R.id.button_cancel);
+//        TextView button_cancel = v2.findViewById(R.id.button_cancel);
+//       final TextView button_cancel = v2.findViewById(R.id.button_cancel);
+//        Button button_cancel = v2.findViewById(R.id.button_cancel);
 
         button_submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -381,12 +416,12 @@ public class Login extends AppCompatActivity {
                 if (DetectConnection.checkInternetConnection(Login.this)) {
                     if (edittext_otp.getText().toString().equals("")) {
                         Toast.makeText(Login.this, "Please enter OTP", Toast.LENGTH_SHORT).show();
-                    } else if (edittext_new_password.getText().toString().equals("")) {
-                        Toast.makeText(Login.this, "Please enter new password", Toast.LENGTH_SHORT).show();
+                    } else if (edittext_otp.getText().toString().length() < 6) {
+                        Toast.makeText(Login.this, "Please enter 6 digit otp", Toast.LENGTH_SHORT).show();
                     } else {
                         String otp = edittext_otp.getText().toString();
-                        String password = edittext_new_password.getText().toString();
-                        mSubmitPassword(username, otp, password);
+//                        String password = edittext_new_password.getText().toString();
+                        mSubmitPassword(username, otp);
                     }
                 } else {
                     Toast.makeText(Login.this, "No internet connection", Toast.LENGTH_SHORT).show();
@@ -420,22 +455,15 @@ public class Login extends AppCompatActivity {
         builder2.setView(v2);
 
         alertDialog = builder2.create();
-        button_cancel.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        alertDialog.dismiss();
-                    }
-                });
+
 
         alertDialog.show();
     }
 
-
 //    /for submit new password
 
     //    for forgot password
-    private void mSubmitPassword(final String username, final String otp, final String password) {
+    private void mSubmitPassword(final String username, final String otp) {
         class getJSONData extends AsyncTask<String, String, String> {
 
 
@@ -457,7 +485,7 @@ public class Login extends AppCompatActivity {
                 StringBuilder result = new StringBuilder();
 
                 try {
-                    URL url = new URL(SharePrfeManager.getInstance(Login.this).mGetBaseUrl() + "api/android/auth/reset?mobile=" + username + "&token=" + otp + "&password=" + password);
+                    URL url = new URL(SharePrfeManager.getInstance(Login.this).mGetBaseUrl() + "api/andreset?mobile=" + username + "&otp=" + otp);
                     urlConnection = (HttpURLConnection) url.openConnection();
                     InputStream in = new BufferedInputStream(urlConnection.getInputStream());
 

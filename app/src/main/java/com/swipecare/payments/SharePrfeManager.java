@@ -49,7 +49,7 @@ public class SharePrfeManager {
     }
 
     public static String mGetBaseUrl() {
-        return "http://rechargepay.site/";
+        return "https://rechargepay.site/service/";
     }
 
     public String mGetMainBalance() {

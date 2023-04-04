@@ -49,7 +49,7 @@ public class SharePrfeManager {
     }
 
     public static String mGetBaseUrl() {
-        return "https://rc.quickrc.in/";
+        return "http://rechargepay.site/";
     }
 
     public String mGetMainBalance() {

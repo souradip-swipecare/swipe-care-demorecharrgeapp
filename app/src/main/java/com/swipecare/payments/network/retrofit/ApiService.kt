@@ -32,7 +32,7 @@ val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
     .build()
 
-const val baseUrl = "https://rc.quickrc.in/"
+const val baseUrl = "http://rechargepay.site/"
 const val baseUrlForOperatorAndCircle = "https://planapi.in/"
 
 var okHttpClientOneMinuteTimeOut = OkHttpClient().newBuilder()

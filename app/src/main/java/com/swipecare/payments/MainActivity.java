@@ -348,7 +348,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.hambargicon);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.hambergrc);
 
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);

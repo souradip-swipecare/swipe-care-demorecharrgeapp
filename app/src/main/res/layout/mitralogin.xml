@@ -30,7 +30,7 @@
         android:layout_marginStart="-30dp"
         android:layout_alignParentTop="true"
         android:layout_marginEnd="-30dp"
-        app:cardBackgroundColor="#483AD5"
+        app:cardBackgroundColor="#9E18CABB"
         app:cardCornerRadius="80dp"
         android:layout_marginTop="-80dp"
         >
@@ -48,7 +48,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="130dp"
-                android:src="@drawable/loglogomitra" />
+                android:src="@drawable/companylogorc" />
 
             <TextView
                 android:id="@+id/text"
@@ -82,7 +82,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="100dp"
         app:cardBackgroundColor="#ffff"
         app:cardCornerRadius="40dp">
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -242,7 +242,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textt"
         android:layout_centerHorizontal="true"
-        android:text="MITRA INFOTECH INDIA LTD"
+        android:text="RECHARGE PAY "
         android:textColor="#3322AE"
         android:textSize="22sp"
         android:textStyle="bold" />

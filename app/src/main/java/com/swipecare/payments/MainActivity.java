@@ -43,6 +43,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -82,7 +83,7 @@ import androidx.biometric.BiometricPrompt.PromptInfo;
 import androidx.biometric.BiometricPrompt;
 
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
+public class MainActivity extends AppCompatActivity  {
 
     NavigationView navigationView;
     DrawerLayout drawer;
@@ -97,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     // Banking Aeps Services
     CardView cashWithdraw, balanceEnquiry, miniStatement, kyc;
     // Payout Services
-    CardView swipePayout, bal_add_online;
+    Button swipePayout, bal_add_online;
     LinearLayout walletTransfer,textview_add;
 
     LinearLayout topLayoutMainDashboard;
@@ -127,6 +128,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_dashboard);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation_view);
+
+        // Set Home selected
+        bottomNavigationView.setSelectedItemId(R.id.home);
+
+        // Perform item selected listener
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+
+            switch(item.getItemId())
+            {
+                case R.id.my_reports:
+                    startActivity(new Intent(getApplicationContext(),HelpActtivity.class));
+                    overridePendingTransition(0,0);
+                    return true;
+                case R.id.home:
+                    return true;
+                case R.id.profile:
+                    Toast.makeText(MainActivity.this, getString(R.string.please_try_again), Toast.LENGTH_SHORT).show();
+                    return true;
+            }
+            return false;
+        });
 
         // Add Biometric/device credential authentication
         executor = ContextCompat.getMainExecutor(this);
@@ -247,22 +270,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(new Intent(MainActivity.this, DTH.class));
             }
         });
-        nav_wallet_request_reportt = findViewById(R.id.nav_wallet_request_reportt);
-        nav_wallet_request_reportt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, AccountStatementTransactionsActivity.class));
-            }
-        });
-        nav_statementt = findViewById(R.id.nav_statementt);
-        nav_statementt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, TransactionReports.class);
-                intent.putExtra("type", "rechargestatement");
-                startActivity(intent);
-            }
-        });
+//        nav_wallet_request_reportt = findViewById(R.id.nav_wallet_request_reportt);
+//        nav_wallet_request_reportt.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(MainActivity.this, AccountStatementTransactionsActivity.class));
+//            }
+//        });
+//        nav_statementt = findViewById(R.id.nav_statementt);
+//        nav_statementt.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(MainActivity.this, TransactionReports.class);
+//                intent.putExtra("type", "rechargestatement");
+//                startActivity(intent);
+//            }
+//        });
         contact_us = findViewById(R.id.contact_us);
         contact_us.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -341,64 +364,64 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //            cardViewTwo.setCardElevation(0);
 //        });
 
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+//        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+//                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+//        drawer.addDrawerListener(toggle);
+//        toggle.syncState();
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.hambergrc);
 
 
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+//        navigationView = (NavigationView) findViewById(R.id.nav_view);
+//        navigationView.setNavigationItemSelectedListener(this);
 
         // view pager
-        mDemoSlider = (SliderLayout) findViewById(R.id.slider);
-
-        HashMap<String, Integer> file_maps = new HashMap<String, Integer>();
-        file_maps.put("1", R.drawable.image1);
-        file_maps.put("2", R.drawable.image2);
-        file_maps.put("3", R.drawable.image3);
-        file_maps.put("4", R.drawable.image4);
-
-        for (String name : file_maps.keySet()) {
-            TextSliderView textSliderView = new TextSliderView(this);
-            textSliderView
-                    .description(name)
-                    .image(file_maps.get(name))
-                    .setScaleType(BaseSliderView.ScaleType.Fit)
-                    .setOnSliderClickListener(this);
-
-            textSliderView.bundle(new Bundle());
-            textSliderView.getBundle()
-                    .putString("extra", name);
-
-            mDemoSlider.addSlider(textSliderView);
-            mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Default);
-        }
-        View headerView = navigationView.getHeaderView(0);
-        textview_name = headerView.findViewById(R.id.textview_name);
-        textview_mobile = headerView.findViewById(R.id.textview_mobile);
+//        mDemoSlider = (SliderLayout) findViewById(R.id.slider);
+//
+//        HashMap<String, Integer> file_maps = new HashMap<String, Integer>();
+//        file_maps.put("1", R.drawable.image1);
+//        file_maps.put("2", R.drawable.image2);
+//        file_maps.put("3", R.drawable.image3);
+//        file_maps.put("4", R.drawable.image4);
+//
+//        for (String name : file_maps.keySet()) {
+//            TextSliderView textSliderView = new TextSliderView(this);
+//            textSliderView
+//                    .description(name)
+//                    .image(file_maps.get(name))
+//                    .setScaleType(BaseSliderView.ScaleType.Fit)
+//                    .setOnSliderClickListener(this);
+//
+//            textSliderView.bundle(new Bundle());
+//            textSliderView.getBundle()
+//                    .putString("extra", name);
+//
+//            mDemoSlider.addSlider(textSliderView);
+//            mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Default);
+//        }
+//        View headerView = navigationView.getHeaderView(0);
+        textview_name = findViewById(R.id.textview_name);
+        textview_mobile = findViewById(R.id.textview_mobile);
 //
         textview_name.setText(SharePrfeManager.getInstance(MainActivity.this).mGetName());
         textview_mobile.setText(SharePrfeManager.getInstance(MainActivity.this).mGetMobile());
 
         // bottom navigation
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
+//        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
     }
 
 
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
+//    @Override
+//    public void onBackPressed() {
+//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        if (drawer.isDrawerOpen(GravityCompat.START)) {
+//            drawer.closeDrawer(GravityCompat.START);
+//        } else {
+//            super.onBackPressed();
+//        }
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -419,61 +442,61 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.nav_aeps_transaction_reports) {
-            Intent intent = new Intent(MainActivity.this, TransactionReports.class);
-            intent.putExtra("type", "aepsstatement");
-            startActivity(intent);
-        } else if (id == R.id.nav_statement) {
-            Intent intent = new Intent(MainActivity.this, TransactionReports.class);
-            intent.putExtra("type", "rechargestatement");
-            startActivity(intent);
-        } else if (id == R.id.nav_bill_payment_statement) {
-            Intent intent = new Intent(MainActivity.this, TransactionReports.class);
-            intent.putExtra("type", "billpaystatement");
-            startActivity(intent);
-        } else if (id == R.id.nav_dmt_statement) {
-            Intent intent = new Intent(MainActivity.this, TransactionReports.class);
-            intent.putExtra("type", "dmtstatement");
-            startActivity(intent);
-        } else if (id == R.id.nav_matm_statement) {
-            Intent intent = new Intent(MainActivity.this, TransactionReports.class);
-            intent.putExtra("type", "matmstatement");
-            startActivity(intent);
-        } else if (id == R.id.nav_aeps_wallet_statement) {
-            Intent intent = new Intent(MainActivity.this, AepsReportActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_wallet_request_report) {
-            Intent intent = new Intent(MainActivity.this, AccountStatementTransactionsActivity.class);
-//            intent.putExtra("type", "fundrequest");
-        } else if (id == R.id.payout_report) {
-            Intent intent = new Intent(this, PayoutReportActivity.class);
-            startActivity(intent);
-            return true;
-        }  else if (id == R.id.actionLogout) {
-            SharePrfeManager.getInstance(MainActivity.this).mLogout();
-            startActivity(new Intent(MainActivity.this, Login.class));
-            finish();
-            return true;
-        }else if (id == R.id.home) {
-            startActivity(new Intent(this, MainActivity.class));
-            return true;
-        } else if (id == R.id.my_reports) {
-
-        } else if (id == R.id.wallet) {
-
-        } else if (id == R.id.notifications) {
-
-        } else if (id == R.id.help) {
-
-        }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
+//    @Override
+//    public boolean onNavigationItemSelected(MenuItem item) {
+//        int id = item.getItemId();
+//
+//        if (id == R.id.nav_aeps_transaction_reports) {
+//            Intent intent = new Intent(MainActivity.this, TransactionReports.class);
+//            intent.putExtra("type", "aepsstatement");
+//            startActivity(intent);
+//        } else if (id == R.id.nav_statement) {
+//            Intent intent = new Intent(MainActivity.this, TransactionReports.class);
+//            intent.putExtra("type", "rechargestatement");
+//            startActivity(intent);
+//        } else if (id == R.id.nav_bill_payment_statement) {
+//            Intent intent = new Intent(MainActivity.this, TransactionReports.class);
+//            intent.putExtra("type", "billpaystatement");
+//            startActivity(intent);
+//        } else if (id == R.id.nav_dmt_statement) {
+//            Intent intent = new Intent(MainActivity.this, TransactionReports.class);
+//            intent.putExtra("type", "dmtstatement");
+//            startActivity(intent);
+//        } else if (id == R.id.nav_matm_statement) {
+//            Intent intent = new Intent(MainActivity.this, TransactionReports.class);
+//            intent.putExtra("type", "matmstatement");
+//            startActivity(intent);
+//        } else if (id == R.id.nav_aeps_wallet_statement) {
+//            Intent intent = new Intent(MainActivity.this, AepsReportActivity.class);
+//            startActivity(intent);
+//        } else if (id == R.id.nav_wallet_request_report) {
+//            Intent intent = new Intent(MainActivity.this, AccountStatementTransactionsActivity.class);
+////            intent.putExtra("type", "fundrequest");
+//        } else if (id == R.id.payout_report) {
+//            Intent intent = new Intent(this, PayoutReportActivity.class);
+//            startActivity(intent);
+//            return true;
+//        }  else if (id == R.id.actionLogout) {
+//            SharePrfeManager.getInstance(MainActivity.this).mLogout();
+//            startActivity(new Intent(MainActivity.this, Login.class));
+//            finish();
+//            return true;
+//        }else if (id == R.id.home) {
+//            startActivity(new Intent(this, MainActivity.class));
+//            return true;
+//        } else if (id == R.id.my_reports) {
+//
+//        } else if (id == R.id.wallet) {
+//
+//        } else if (id == R.id.notifications) {
+//
+//        } else if (id == R.id.help) {
+//
+//        }
+//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        drawer.closeDrawer(GravityCompat.START);
+//        return true;
+//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -498,25 +521,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    @Override
-    public void onSliderClick(BaseSliderView slider) {
+//    @Override
+//    public void onSliderClick(BaseSliderView slider) {
+//
+//    }
 
-    }
+//    @Override
+//    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//
+//    }
 
-    @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-    }
-
-    @Override
-    public void onPageSelected(int position) {
-
-    }
-
-    @Override
-    public void onPageScrollStateChanged(int state) {
-
-    }
+//    @Override
+//    public void onPageSelected(int position) {
+//
+//    }
+//
+//    @Override
+//    public void onPageScrollStateChanged(int state) {
+//
+//    }
 
     @Override
     protected void onResume() {
@@ -830,6 +853,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             String aepsid = userdata.getString("aepsid");
 
 
+
+
                             JSONObject active = jsonObject.getJSONObject("company");
                             String upi_status = active.getString("upi_status");
                             String bharat_status = active.getString("bharat_status");
@@ -861,11 +886,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-    @Override
-    protected void onStop() {
-        mDemoSlider.stopAutoCycle();
-        super.onStop();
-    }
+//    @Override
+//    protected void onStop() {
+//        mDemoSlider.stopAutoCycle();
+//        super.onStop();
+//    }
 
     private void gotoSecuritySettings(@NonNull AppCompatActivity activity) {
         try {

@@ -7,21 +7,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:background="#F1E3F4"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
 
 
             <androidx.cardview.widget.CardView
@@ -186,6 +185,7 @@
                 android:layout_height="30dp"
                 android:orientation="horizontal"
                 android:background="#B39DDB"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardView13">
@@ -198,6 +198,7 @@
                     android:textColor="#ffffff"
                     android:textSize="18sp"
                     android:textStyle="bold"
+                    android:visibility="gone"
                     android:ellipsize="marquee"
                     android:marqueeRepeatLimit="marquee_forever"
                     android:scrollHorizontally="true"
@@ -210,7 +211,6 @@
                 android:id="@+id/linearLayout13"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
-                android:layout_margin="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout12">
@@ -237,7 +237,7 @@
             <LinearLayout
                 android:id="@+id/linearLay"
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -248,13 +248,13 @@
                     android:layout_height="80dp"
                     android:layout_margin="10dp"
                     app:cardCornerRadius="19dp"
-                    android:elevation="30dp"
-                    app:cardElevation="10dp">
+                    android:outlineSpotShadowColor="@color/colorBlue"
+                    >
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:weightSum="3"
+                        android:weightSum="2"
                         android:orientation="horizontal">
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="wrap_content"
@@ -290,42 +290,15 @@
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--                        <View-->
-<!--                            android:layout_width="2dp"-->
-<!--                            android:layout_height="match_parent"-->
-<!--                            android:background="@color/black_overlay" />-->
-
-<!--                        <View-->
-<!--                            android:layout_width="2dp"-->
-<!--                            android:layout_height="match_parent"-->
-<!--                            android:background="@color/black_overlay" />-->
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="wrap_content"
+                        <View
+                            android:layout_width="3dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                           >
+                            android:background="@color/black_overlay" />
 
-                            <androidx.cardview.widget.CardView
-                                android:id="@+id/bal_add_online"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:gravity="center"
-                                app:cardElevation="10dp"
-                                android:outlineSpotShadowColor="@color/black_overlay"
-                                app:cardCornerRadius="200dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent">
-
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="50dp"
-                                    android:layout_gravity="center"
-                                    android:src="@drawable/mittra_baladd" />
-                            </androidx.cardview.widget.CardView>
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                        <View-->
+<!--                            android:layout_width="2dp"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:background="@color/black_overlay" />-->
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
@@ -378,403 +351,321 @@
                 android:layout_width="match_parent"
                 android:layout_height="290dp"
                 android:layout_margin="5dp"
+                android:orientation="vertical"
                 app:layout_constraintTop_toBottomOf="@+id/linearLay">
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                    app:cardElevation="10dp"
-                    app:cardCornerRadius="19dp">
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/textView25"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="10dp"
-                            android:text="Our Services "
-                            android:textColor="#000"
-                            android:textSize="17sp"
-                            android:textStyle="bold"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <LinearLayout
-                            android:id="@+id/linearLayout14"
-                            android:layout_width="match_parent"
-                            android:layout_height="120dp"
-                            android:layout_margin="0dp"
-                            android:orientation="horizontal"
-                            android:weightSum="4"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView25">
-
-                            <LinearLayout
-                                android:id="@+id/prepaid_recharge"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="center"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:orientation="vertical">
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="5dp">
-                                    <ImageView
-                                        android:layout_width="45dp"
-                                        android:layout_height="45dp"
-                                        android:layout_gravity="center"
-                                        android:src="@drawable/prepaid_mitra" />
-
-                                </LinearLayout>
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:paddingTop="5dp"
-                                    android:text="@string/prepaid"
-                                    android:textAlignment="center"
-                                    android:textAppearance="@style/iconname" />
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:id="@+id/dth_recharge"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="center"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:orientation="vertical">
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="5dp">
-                                    <ImageView
-                                        android:layout_width="45dp"
-                                        android:layout_height="45dp"
-                                        android:layout_gravity="center"
-                                        android:src="@drawable/dth_mitra" />
-
-                                </LinearLayout>
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:paddingTop="5dp"
-                                    android:text="DTH\nRecharge"
-                                    android:textAlignment="center"
-                                    android:textAppearance="@style/iconname" />
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:id="@+id/electricity_bill"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="center"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:orientation="vertical">
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="5dp">
-                                    <ImageView
-                                        android:layout_width="45dp"
-                                        android:layout_height="45dp"
-                                        android:layout_gravity="center"
-                                        android:src="@drawable/google_mitra" />
-
-                                </LinearLayout>
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:paddingTop="5dp"
-                                    android:textAlignment="center"
-                                    android:text="Google\nplay"
-                                    android:layout_gravity="center_horizontal"
-                                    android:textAppearance="@style/iconname" />
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:id="@+id/fastag_recharge"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="center"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:orientation="vertical">
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="5dp">
-                                    <ImageView
-                                        android:layout_width="45dp"
-                                        android:layout_height="45dp"
-                                        android:layout_gravity="center"
-                                        android:src="@drawable/fastag_mitra" />
-
-                                </LinearLayout>
-
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:paddingTop="5dp"
-                                    android:text="Fastag\nRecharge"
-                                    android:textAlignment="center"
-                                    android:textAppearance="@style/iconname" />
-
-                            </LinearLayout>
-
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="120dp"
-                            android:orientation="horizontal"
-                            android:weightSum="4"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/linearLayout14">
-
-                            <LinearLayout
-                                android:id="@+id/my_commision"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="center"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:orientation="vertical">
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="5dp">
-                                    <ImageView
-                                        android:layout_width="45dp"
-                                        android:layout_height="45dp"
-                                        android:layout_gravity="center"
-                                        android:src="@drawable/commision_mitra" />
-
-                                </LinearLayout>
-
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:paddingTop="5dp"
-                                    android:text="My\nCommision"
-                                    android:textAlignment="center"
-                                    android:textAppearance="@style/iconname" />
-
-                            </LinearLayout>
-                            <LinearLayout
-                                android:id="@+id/nav_statementt"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="center"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:orientation="vertical">
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="5dp">
-                                    <ImageView
-                                        android:layout_width="45dp"
-                                        android:layout_height="45dp"
-                                        android:layout_gravity="center"
-                                        android:src="@drawable/daybook_mitra" />
-
-                                </LinearLayout>
-
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:paddingTop="5dp"
-                                    android:text="Recharge\nBook"
-                                    android:textAlignment="center"
-                                    android:textAppearance="@style/iconname" />
-
-                            </LinearLayout>
-                            <LinearLayout
-                                android:id="@+id/nav_wallet_request_reportt"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="center"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:orientation="vertical">
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="5dp">
-                                    <ImageView
-                                        android:layout_width="45dp"
-                                        android:layout_height="45dp"
-                                        android:layout_gravity="center"
-                                        android:src="@drawable/wallettxn_mitra" />
-
-                                </LinearLayout>
-
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:paddingTop="5dp"
-                                    android:text="Wallet\nSummary"
-                                    android:textAlignment="center"
-                                    android:textAppearance="@style/iconname" />
-
-                            </LinearLayout>
-                            <LinearLayout
-                                android:id="@+id/contact_us"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="center"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:orientation="vertical">
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="5dp">
-                                    <ImageView
-                                        android:layout_width="45dp"
-                                        android:layout_height="45dp"
-                                        android:layout_gravity="center"
-                                        android:src="@drawable/txnhistry" />
-
-                                </LinearLayout>
-
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:paddingTop="5dp"
-                                    android:text="Contact\nUs"
-                                    android:textAlignment="center"
-                                    android:textAppearance="@style/iconname" />
-
-                            </LinearLayout>
-
-
-
-
-
-
-                        </LinearLayout>
-
-
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </androidx.cardview.widget.CardView>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearLayout130"
-                android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:layout_margin="15dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/service">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:cardCornerRadius="19dp"
-                    android:visibility="gone">
-                    <com.daimajia.slider.library.SliderLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        custom:auto_cycle="true"
-                        custom:indicator_visibility="visible"
-                        custom:pager_animation="Accordion"
-                        custom:pager_animation_span="1100" />
-
-
-                </androidx.cardview.widget.CardView>
-
-
-            </LinearLayout>
-
-
-
-
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout130">
-                <LinearLayout
+                <TextView
+                    android:id="@+id/textView25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:visibility="gone"
-                    android:orientation="vertical">
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Our Services "
+                    android:textColor="#000"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/postpaid_recharge"
-                        android:layout_width="45dp"
-                        android:layout_height="44dp"
-                        android:layout_gravity="center"
-                        android:layout_margin="3dp"
-                        android:outlineSpotShadowColor="@color/black"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="10dp"
-                        app:cardElevation="6dp">
+                <LinearLayout
+                    android:id="@+id/linearLayout14"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_margin="0dp"
+                    android:orientation="horizontal"
+                    android:weightSum="4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView25">
 
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:src="@drawable/postpaid_rechrarge" />
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
+                    <LinearLayout
+                        android:id="@+id/prepaid_recharge"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="2dp"
-                        android:text="@string/postpaid"
-                        android:textAppearance="@style/iconname" />
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+                            <ImageView
+                                android:layout_width="43dp"
+                                android:layout_height="43dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/prepaid_rechrarge" />
+
+                        </LinearLayout>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            android:text="@string/prepaid"
+                            android:textAlignment="center"
+                            android:textAppearance="@style/iconname" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/dth_recharge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+                            <ImageView
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/dth_rechrarge" />
+
+                        </LinearLayout>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            android:text="DTH\nRecharge"
+                            android:textAlignment="center"
+                            android:textAppearance="@style/iconname" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/electricity_bill"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+                            <ImageView
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/water_bbps" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            android:textAlignment="center"
+                            android:text="Google\nplay"
+                            android:layout_gravity="center_horizontal"
+                            android:textAppearance="@style/iconname" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/fastag_recharge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+                            <ImageView
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/fasttag_rechrarge" />
+
+                        </LinearLayout>
+
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            android:text="Fastag\nRecharge"
+                            android:textAlignment="center"
+                            android:textAppearance="@style/iconname" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Others"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="17sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:orientation="horizontal"
+                    android:weightSum="4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout14">
+
+                    <LinearLayout
+                        android:id="@+id/my_commision"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+                            <ImageView
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/commision_mitra" />
+
+                        </LinearLayout>
+
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            android:text="My\nCommision"
+                            android:textAlignment="center"
+                            android:textAppearance="@style/iconname" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/nav_statementt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+                            <ImageView
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/daybook_mitra" />
+
+                        </LinearLayout>
+
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            android:text="Fund\nRequest"
+                            android:textAlignment="center"
+                            android:textAppearance="@style/iconname" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/nav_wallet_request_reportt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+                            <ImageView
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/wallettxn_mitra" />
+
+                        </LinearLayout>
+
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            android:text="Wallet\nSummary"
+                            android:textAlignment="center"
+                            android:textAppearance="@style/iconname" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/contact_us"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+                            <ImageView
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/txnhistry" />
+
+                        </LinearLayout>
+
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            android:text="Contact\nUs"
+                            android:textAlignment="center"
+                            android:textAppearance="@style/iconname" />
+
+                    </LinearLayout>
+
+
+
+
+
 
                 </LinearLayout>
 
 
             </LinearLayout>
+
 
 
 

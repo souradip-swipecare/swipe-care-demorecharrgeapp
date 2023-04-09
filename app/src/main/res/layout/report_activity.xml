@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <data>
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/walletreport"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="40dp"
+            android:outlineSpotShadowColor="@color/colorBlue"
+            app:cardCornerRadius="150dp"
+            app:cardElevation="10dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="@dimen/dimen_100dp"
+                android:layout_height="@dimen/dimen_100dp"
+                android:layout_gravity="center"
+                android:src="@drawable/wallet" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/textView31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="WALLET"
+            android:textColor="@color/colorBlue"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/walletreport"
+            app:layout_constraintStart_toStartOf="@+id/walletreport"
+            app:layout_constraintTop_toBottomOf="@+id/walletreport" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/rechargereport"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="40dp"
+            android:outlineSpotShadowColor="@color/colorBlue"
+            app:cardCornerRadius="150dp"
+            app:cardElevation="10dp"
+
+            app:layout_constraintStart_toEndOf="@+id/walletreport"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="@dimen/dimen_100dp"
+                android:layout_height="@dimen/dimen_100dp"
+                android:layout_gravity="center"
+                android:src="@drawable/rereport" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RECHARGE"
+            android:textColor="@color/colorBlue"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            app:layout_constraintEnd_toEndOf="@+id/rechargereport"
+            app:layout_constraintStart_toStartOf="@+id/rechargereport"
+            app:layout_constraintTop_toBottomOf="@+id/rechargereport" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

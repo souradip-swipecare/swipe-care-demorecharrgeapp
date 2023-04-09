@@ -105,8 +105,8 @@
     <string name="home">Home</string>
     <string name="wallet">Wallet</string>
     <string name="notifications">notifications</string>
-    <string name="help">Help</string>
-    <string name="my_reports">My Reports</string>
+    <string name="help">Support</string>
+    <string name="my_reports"> Reports</string>
     <string name="upgrade_shop">Upgrade Shop</string>
     <string name="commission_structure">Commission Structure</string>
     <string name="certificates">Certificates</string>

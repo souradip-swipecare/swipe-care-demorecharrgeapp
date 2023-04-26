@@ -286,6 +286,21 @@ interface SwipeApiService {
         @Query("otp") otp: String
     ): Otpfrsubmit
     //news
+    @POST("api/android/newmember")
+    suspend fun useradd(
+        @Query("user_id") userId: String,
+        @Query("apptoken") appToken: String,
+        @Query("mobile") mobile: String,
+        @Query("email") email: String,
+        @Query("address") address: String,
+        @Query("city") city: String,
+        @Query("state") state: String,
+        @Query("pincode") pincode: String,
+        @Query("pancard") pancard: String,
+        @Query("aadharcard") aadharcard: String,
+        @Query("role_id") role_id: String,
+        @Query("name") name: String
+    ): Useradd
 
 }
 

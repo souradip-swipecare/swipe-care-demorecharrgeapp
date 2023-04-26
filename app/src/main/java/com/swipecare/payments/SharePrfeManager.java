@@ -66,7 +66,7 @@ public class SharePrfeManager {
 
     public void mSaveUserData(String username, String password, String id, String name, String email, String mobile, String mainwallet, String aepsbalance, String role_id, String parent_id,
                               String status, String company_id, String shopname, String apptoken,
-                              String utiid, String utiidtxnid, String utiidstatus, String tokenamount, String account, String bank, String ifsc, String aepsid, String upi_status, String bharat_status) {
+                              String utiid, String utiidtxnid, String utiidstatus, String tokenamount, String account, String bank, String ifsc, String aepsid, String upi_status, String bharat_status,String address,String aadharcard,String pancard,String state,String pincode) {
         SharedPreferences sharedPreferences = mContext.getSharedPreferences(SHARE_PREFRERENCE, 0);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("username", username);
@@ -93,6 +93,12 @@ public class SharePrfeManager {
         editor.putString("aepsid", aepsid);
         editor.putString("upi_status", upi_status);
         editor.putString("bharat_status", bharat_status);
+
+        editor.putString("address", address);
+        editor.putString("aadharcard", aadharcard);
+        editor.putString("pancard", pancard);
+        editor.putString("state", state);
+        editor.putString("pincode", pincode);
         editor.commit();
 
     }
@@ -131,6 +137,11 @@ public class SharePrfeManager {
     public String getEmail(){
         SharedPreferences sharedPreferences = mContext.getSharedPreferences(SHARE_PREFRERENCE, 0);
         return sharedPreferences.getString("email", "");
+    }
+    public String mGetRoleid(){
+        SharedPreferences sharedPreferences = mContext.getSharedPreferences(SHARE_PREFRERENCE, 0);
+        String role_id = sharedPreferences.getString("role_id", "");
+        return role_id;
     }
 
     public  String mGetUserId() {
@@ -248,5 +259,30 @@ public class SharePrfeManager {
         SharedPreferences sharedPreferences = mContext.getSharedPreferences(SHARE_PREFRERENCE, 0);
         String bharat_status = sharedPreferences.getString("bharat_status", "");
         return bharat_status;
+    }
+    public String mGetaddress() {
+        SharedPreferences sharedPreferences = mContext.getSharedPreferences(SHARE_PREFRERENCE, 0);
+        String address = sharedPreferences.getString("address", "");
+        return address;
+    }
+    public String mGetpincode() {
+        SharedPreferences sharedPreferences = mContext.getSharedPreferences(SHARE_PREFRERENCE, 0);
+        String pincode = sharedPreferences.getString("pincode", "");
+        return pincode;
+    }
+    public String mGetaadharcard() {
+        SharedPreferences sharedPreferences = mContext.getSharedPreferences(SHARE_PREFRERENCE, 0);
+        String aadharcard = sharedPreferences.getString("aadharcard", "");
+        return aadharcard;
+    }
+    public String mGetstate() {
+        SharedPreferences sharedPreferences = mContext.getSharedPreferences(SHARE_PREFRERENCE, 0);
+        String state = sharedPreferences.getString("state", "");
+        return state;
+    }
+    public String mGetpancard() {
+        SharedPreferences sharedPreferences = mContext.getSharedPreferences(SHARE_PREFRERENCE, 0);
+        String pancard = sharedPreferences.getString("pancard", "");
+        return pancard;
     }
 }

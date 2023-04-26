@@ -42,7 +42,7 @@ fun checkOnboardingStatus(activity: MainActivity) {
                 intent.putExtra("firm", onboardingStatusDetails.data?.shopName)
                 intent.putExtra("email", sharePrfeManager.email)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                startActivityForResult(activity, intent, 10, null)
+                startActivityForResult(activity, intent, 999, null)
             } else {
                 Toast.makeText(activity, activity.applicationContext.getString(R.string.please_do_web_kyc_first), Toast.LENGTH_SHORT).show()
             }

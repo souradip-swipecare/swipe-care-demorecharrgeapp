@@ -120,4 +120,5 @@
     <string name="commission">Commission</string>
     <string name="fetching_commission">Fetching Commission</string>
     <string name="title_activity_commission">Commision</string>
+    <string name="Useradd">User Add</string>
 </resources>

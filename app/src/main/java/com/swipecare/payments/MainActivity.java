@@ -43,6 +43,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -83,7 +85,7 @@ import androidx.biometric.BiometricPrompt.PromptInfo;
 import androidx.biometric.BiometricPrompt;
 
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity implements BaseSliderView.OnSliderClickListener  {
 
     NavigationView navigationView;
     DrawerLayout drawer;
@@ -139,13 +141,23 @@ public class MainActivity extends AppCompatActivity  {
             switch(item.getItemId())
             {
                 case R.id.my_reports:
-                    startActivity(new Intent(getApplicationContext(),HelpActtivity.class));
+                    startActivity(new Intent(getApplicationContext(),Reportactivity.class));
                     overridePendingTransition(0,0);
                     return true;
                 case R.id.home:
                     return true;
                 case R.id.profile:
-                    Toast.makeText(MainActivity.this, getString(R.string.please_try_again), Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getApplicationContext(),Profileactivity.class));
+                    overridePendingTransition(0,0);
+                    return true;
+                case R.id.help:
+                    startActivity(new Intent(getApplicationContext(),HelpActtivity.class));
+                    overridePendingTransition(0,0);
+                    return true;
+                case R.id.actionLogout:
+                    SharePrfeManager.getInstance(MainActivity.this).mLogout();
+                    startActivity(new Intent(MainActivity.this, Login.class));
+                    finish();
                     return true;
             }
             return false;
@@ -255,6 +267,14 @@ public class MainActivity extends AppCompatActivity  {
                 startActivity(intent);
             }
         });
+
+        if (Build.VERSION.SDK_INT >= 21) {
+            Window window = this.getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(this.getResources().getColor(R.color.colorPrimary));
+        }
+
 
 //        textview_main_balance.setText("" + SharePrfeManager.getInstance(MainActivity.this).mGetMainBalance());
         //  today_profit.setText("₹ " + SharePrfeManager.getInstance(MainActivity.this).mGetMainBalance());
@@ -377,31 +397,31 @@ public class MainActivity extends AppCompatActivity  {
 //        navigationView = (NavigationView) findViewById(R.id.nav_view);
 //        navigationView.setNavigationItemSelectedListener(this);
 
-        // view pager
-//        mDemoSlider = (SliderLayout) findViewById(R.id.slider);
-//
-//        HashMap<String, Integer> file_maps = new HashMap<String, Integer>();
-//        file_maps.put("1", R.drawable.image1);
-//        file_maps.put("2", R.drawable.image2);
-//        file_maps.put("3", R.drawable.image3);
-//        file_maps.put("4", R.drawable.image4);
-//
-//        for (String name : file_maps.keySet()) {
-//            TextSliderView textSliderView = new TextSliderView(this);
-//            textSliderView
-//                    .description(name)
-//                    .image(file_maps.get(name))
-//                    .setScaleType(BaseSliderView.ScaleType.Fit)
-//                    .setOnSliderClickListener(this);
-//
-//            textSliderView.bundle(new Bundle());
-//            textSliderView.getBundle()
-//                    .putString("extra", name);
-//
-//            mDemoSlider.addSlider(textSliderView);
-//            mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Default);
-//        }
-//        View headerView = navigationView.getHeaderView(0);
+// view pager
+        mDemoSlider = (SliderLayout) findViewById(R.id.slider);
+
+        HashMap<String, Integer> file_maps = new HashMap<String, Integer>();
+        file_maps.put("1", R.drawable.image1);
+        file_maps.put("2", R.drawable.image2);
+        file_maps.put("3", R.drawable.image3);
+        file_maps.put("4", R.drawable.image4);
+
+        for (String name : file_maps.keySet()) {
+            TextSliderView textSliderView = new TextSliderView(this);
+            textSliderView
+                    .description(name)
+                    .image(file_maps.get(name))
+                    .setScaleType(BaseSliderView.ScaleType.Fit)
+                    .setOnSliderClickListener(this);
+
+            textSliderView.bundle(new Bundle());
+            textSliderView.getBundle()
+                    .putString("extra", name);
+
+            mDemoSlider.addSlider(textSliderView);
+            mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Default);
+        }
+        //        View headerView = navigationView.getHeaderView(0);
         textview_name = findViewById(R.id.textview_name);
         textview_mobile = findViewById(R.id.textview_mobile);
 //
@@ -548,7 +568,6 @@ public class MainActivity extends AppCompatActivity  {
         mGetprofit(SharePrfeManager.getInstance(MainActivity.this).mGetappToken(), SharePrfeManager.getInstance(MainActivity.this).mGetUserId());
         mGetBalance(SharePrfeManager.getInstance(MainActivity.this).mGetappToken(), SharePrfeManager.getInstance(MainActivity.this).mGetUserId());
         mGetcompanynews(SharePrfeManager.getInstance(MainActivity.this).mGetappToken(), SharePrfeManager.getInstance(MainActivity.this).mGetUserId());
-
 
         checkBiometricSupport();
     }
@@ -851,6 +870,13 @@ public class MainActivity extends AppCompatActivity  {
                             String bank = userdata.getString("bank");
                             String ifsc = userdata.getString("ifsc");
                             String aepsid = userdata.getString("aepsid");
+                            String address = userdata.getString("address");
+                            String aadharcard = userdata.getString("aadharcard");
+                            String pancard = userdata.getString("aadharcard");
+                            String state = userdata.getString("state");
+                            String pincode = userdata.getString("pincode");
+
+
 
 
 
@@ -863,7 +889,7 @@ public class MainActivity extends AppCompatActivity  {
 
 
                             SharePrfeManager.getInstance(MainActivity.this).mSaveUserData(username, password, id, name, email, mobile, mainwallet, aepsbalance,
-                                    role_id, parent_id, status, company_id, shopname, apptoken, utiid, utiidtxnid, utiidstatus, tokenamount, account, bank, ifsc, aepsid,upi_status,bharat_status);
+                                    role_id, parent_id, status, company_id, shopname, apptoken, utiid, utiidtxnid, utiidstatus, tokenamount, account, bank, ifsc, aepsid,upi_status,bharat_status,address,aadharcard,pancard,state,pincode);
 
                             mGetBalance(SharePrfeManager.getInstance(MainActivity.this).mGetappToken(), SharePrfeManager.getInstance(MainActivity.this).mGetUserId());
 
@@ -886,11 +912,11 @@ public class MainActivity extends AppCompatActivity  {
     }
 
 
-//    @Override
-//    protected void onStop() {
-//        mDemoSlider.stopAutoCycle();
-//        super.onStop();
-//    }
+    @Override
+    protected void onStop() {
+        mDemoSlider.stopAutoCycle();
+        super.onStop();
+    }
 
     private void gotoSecuritySettings(@NonNull AppCompatActivity activity) {
         try {
@@ -920,5 +946,10 @@ public class MainActivity extends AppCompatActivity  {
         } else {
             return false;
         }
+    }
+
+    @Override
+    public void onSliderClick(BaseSliderView slider) {
+
     }
 }

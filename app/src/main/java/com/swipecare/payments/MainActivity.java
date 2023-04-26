@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
     TextView textview_main_balance ;
     TextView textview_aeps_balance;
     TextView today_profit, monthly_profit,flashnews ;
-    LinearLayout nav_wallet_request_reportt,nav_statementt,contact_us;
+    LinearLayout nav_wallet_request_reportt,nav_statementt,adduser;
 
 
 
@@ -306,15 +306,17 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
 //                startActivity(intent);
 //            }
 //        });
-        contact_us = findViewById(R.id.contact_us);
-        contact_us.setOnClickListener(new View.OnClickListener() {
+        adduser = findViewById(R.id.adduser);
+        String role = SharePrfeManager.getInstance(MainActivity.this).mGetRoleid();
+        if(role == "4"){
+            adduser.setVisibility(View.INVISIBLE);
+        }
+        adduser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String no = SharePrfeManager.getInstance(MainActivity.this).mGetMobile();
 
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("https://wa.me/91"+no+"?text=Please guide me with my issue"));
-                startActivity(intent);
+                startActivity(new Intent(MainActivity.this, Useraddd.class));
+
             }
         });
         //        swipeWallet = findViewById(R.id.swipe_wallet);

@@ -624,7 +624,7 @@
 
                     </LinearLayout>
                     <LinearLayout
-                        android:id="@+id/contact_us"
+                        android:id="@+id/adduser"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
@@ -650,7 +650,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingTop="5dp"
-                            android:text="Contact\nUs"
+                            android:text="Add\nUser"
                             android:textAlignment="center"
                             android:textAppearance="@style/iconname" />
 

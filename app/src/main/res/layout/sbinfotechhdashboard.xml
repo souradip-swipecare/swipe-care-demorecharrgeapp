@@ -349,7 +349,7 @@
             <LinearLayout
                 android:id="@+id/service"
                 android:layout_width="match_parent"
-                android:layout_height="290dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:orientation="vertical"
                 app:layout_constraintTop_toBottomOf="@+id/linearLay">
@@ -623,6 +623,101 @@
                             android:textAppearance="@style/iconname" />
 
                     </LinearLayout>
+
+
+
+
+
+
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="User"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="17sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+
+                <LinearLayout
+                    android:id="@+id/notforretailer"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:orientation="horizontal"
+                    android:weightSum="4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout14">
+
+                    <LinearLayout
+                        android:id="@+id/userlist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+                            <ImageView
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/commision_mitra" />
+
+                        </LinearLayout>
+
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            android:text="User\nList"
+                            android:textAlignment="center"
+                            android:textAppearance="@style/iconname" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/fundtransfer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+                            <ImageView
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/daybook_mitra" />
+
+                        </LinearLayout>
+
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            android:text="Fund\nTransfer"
+                            android:textAlignment="center"
+                            android:textAppearance="@style/iconname" />
+
+                    </LinearLayout>
+
                     <LinearLayout
                         android:id="@+id/adduser"
                         android:layout_width="wrap_content"
@@ -640,7 +735,7 @@
                                 android:layout_width="45dp"
                                 android:layout_height="45dp"
                                 android:layout_gravity="center"
-                                android:src="@drawable/txnhistry" />
+                                android:src="@drawable/user" />
 
                         </LinearLayout>
 

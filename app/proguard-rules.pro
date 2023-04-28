@@ -217,3 +217,5 @@
 # paysprint
 -keep class com.paysprint.onboardinglib.** { *; }
 -keep class com.paysprint.onboardinglib.*{ *; }
+
+

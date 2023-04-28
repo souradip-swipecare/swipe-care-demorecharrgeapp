@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
     TextView textview_main_balance ;
     TextView textview_aeps_balance;
     TextView today_profit, monthly_profit,flashnews ;
-    LinearLayout nav_wallet_request_reportt,nav_statementt,adduser;
+    LinearLayout nav_wallet_request_reportt,nav_statementt,adduser,notforretailer;
 
 
 
@@ -307,9 +307,10 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
 //            }
 //        });
         adduser = findViewById(R.id.adduser);
+        notforretailer = findViewById(R.id.notforretailer);
         String role = SharePrfeManager.getInstance(MainActivity.this).mGetRoleid();
         if(role == "4"){
-            adduser.setVisibility(View.INVISIBLE);
+            notforretailer.setVisibility(View.INVISIBLE);
         }
         adduser.setOnClickListener(new View.OnClickListener() {
             @Override

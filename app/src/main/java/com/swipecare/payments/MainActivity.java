@@ -66,6 +66,7 @@ import com.swipecare.payments.recharges.DTH;
 import com.swipecare.payments.recharges.Electricity;
 import com.swipecare.payments.recharges.Mobile_Recharge;
 import com.swipecare.payments.recharges.WalletTransferActivity;
+import com.swipecare.payments.userview.Userviewactivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -93,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
     TextView textview_main_balance ;
     TextView textview_aeps_balance;
     TextView today_profit, monthly_profit,flashnews ;
-    LinearLayout nav_wallet_request_reportt,nav_statementt,adduser,notforretailer;
+    LinearLayout nav_wallet_request_reportt,nav_statementt,adduser,notforretailer,userlist;
 
 
 
@@ -258,6 +259,14 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
         cashWithdraw = findViewById(R.id.cash_withdraw);
         balanceEnquiry = findViewById(R.id.balance_enquiry);
         miniStatement = findViewById(R.id.miniStatement);
+        userlist = findViewById(R.id.userlist);
+        userlist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Userviewactivity.class);
+                startActivity(intent);
+            }
+        });
         kyc = findViewById(R.id.kyc);
         my_commision = findViewById(R.id.my_commision);
         my_commision.setOnClickListener(new View.OnClickListener() {

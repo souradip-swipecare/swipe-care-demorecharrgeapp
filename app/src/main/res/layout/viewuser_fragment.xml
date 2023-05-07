@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+       <androidx.cardview.widget.CardView
+           android:layout_width="match_parent"
+           android:layout_height="50dp"
+           app:cardCornerRadius="10dp"
+           android:layout_marginHorizontal="10dp"
+           android:layout_marginVertical="5dp">
+           <androidx.appcompat.widget.SearchView
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               app:queryHint="Serch Here....."
+               app:iconifiedByDefault="false"
+               app:queryBackground="@color/transparent"/>
+
+       </androidx.cardview.widget.CardView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/viewuserfragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:itemCount="10"
+            tools:listitem="@layout/item_commision" />
+        <!--            app:layout_constraintTop_toBottomOf="@id/state"-->
+
+
+    </LinearLayout>
+</layout>

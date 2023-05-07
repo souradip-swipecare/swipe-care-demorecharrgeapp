@@ -86,6 +86,8 @@
     <string name="hide">Hide</string>
     <string name="aeps_report">Aeps Report</string>
     <string name="main_wallet_report">Main Wallet Report</string>
+    <string name="userlist">Userlist</string>
+
     <string name="fingerprint_scan_successful">Fingerprint scan successful</string>
     <string name="finger_print_scan_failed">Fingerprint scan failed. Please scan your fingers again</string>
     <string name="swipe_care_logo">Swipe Care Logo</string>

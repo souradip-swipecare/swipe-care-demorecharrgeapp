@@ -183,6 +183,12 @@ interface SwipeApiService {
         @Query("apptoken") appToken: String,
     ): AccountStatementResponse
 
+    @POST("api/android/statement/fetch")
+    suspend fun getUserStatementReport(
+        @Query("user_id") userId: String,
+        @Query("apptoken") appToken: String,
+    ): Userlistres
+
     @POST("api/android/wallettransfer")
     suspend fun walletTransfer(
         @Query("apptoken") appToken: String,

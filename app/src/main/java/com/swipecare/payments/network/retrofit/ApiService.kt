@@ -308,6 +308,23 @@ interface SwipeApiService {
         @Query("name") name: String
     ): Useradd
 
+    @POST("api/android/userbymobile")
+    suspend fun userbymobile(
+        @Query("apptoken") apptoken: String,
+        @Query("user_id") user_id: String,
+        @Query("mobileno") mobileno: String,
+    ): Userbymobile
+
+    @POST("api/api/android/fundtransfer")
+    suspend fun fundtransfertouser(
+        @Query("apptoken") apptoken: String,
+        @Query("user_id") user_id: String,
+        @Query("member_id") member_id: String,
+        @Query("amount") amount: String,
+        @Query("remark") remark: String,
+        @Query("type") type: String,
+    ): Fundtrsfr
+
 }
 
 interface PlanApiService {

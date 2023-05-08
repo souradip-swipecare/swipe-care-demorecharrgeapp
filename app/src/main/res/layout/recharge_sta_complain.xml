@@ -90,7 +90,7 @@
                 app:cardElevation="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardView16">
+                app:layout_constraintTop_toBottomOf="@+id/rl_message">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -500,7 +500,7 @@
                 app:cardBackgroundColor="@color/orange"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardView15">
@@ -516,6 +516,33 @@
 
 
             </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/createcomplain"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:padding="@dimen/dimen_10dp"
+                app:cardBackgroundColor="@color/orange"
+                app:cardCornerRadius="30dp"
+                app:cardElevation="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardchksts">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Create Complain"
+                    android:textColor="@color/colorWhite"
+                    android:textStyle="bold"
+                    android:textSize="20sp"/>
+
+
+            </androidx.cardview.widget.CardView>
 
             <RelativeLayout
                 android:id="@+id/rl_message"
@@ -525,7 +552,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:background="@color/colorBlue"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardchksts">
+                app:layout_constraintTop_toBottomOf="@+id/cardView16">
 
 
                 <TextView

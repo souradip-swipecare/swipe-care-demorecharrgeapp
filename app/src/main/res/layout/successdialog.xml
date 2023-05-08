@@ -32,6 +32,20 @@
             android:textColor="#ffffff" />
     </RelativeLayout>
 
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="OK"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_margin="20dp"
+        android:background="@drawable/button_shape"
+        app:layout_constraintTop_toBottomOf="@+id/rl_message" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

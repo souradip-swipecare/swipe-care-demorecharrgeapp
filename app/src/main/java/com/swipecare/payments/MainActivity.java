@@ -78,6 +78,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.Objects;
 import java.util.concurrent.Executor;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -94,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
     TextView textview_main_balance ;
     TextView textview_aeps_balance;
     TextView today_profit, monthly_profit,flashnews ;
-    LinearLayout nav_wallet_request_reportt,nav_statementt,adduser,notforretailer,userlist;
+    LinearLayout nav_wallet_request_reportt,nav_statementt,adduser,notforretailer,userlist,fundtransfer;
 
 
 
@@ -318,7 +319,8 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
         adduser = findViewById(R.id.adduser);
         notforretailer = findViewById(R.id.notforretailer);
         String role = SharePrfeManager.getInstance(MainActivity.this).mGetRoleid();
-        if(role == "4"){
+                    Log.i("Hari", role);
+        if (Objects.equals(role, "4")) {
             notforretailer.setVisibility(View.INVISIBLE);
         }
         adduser.setOnClickListener(new View.OnClickListener() {
@@ -348,6 +350,13 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
 //                startActivity(new Intent(MainActivity.this, PanCard.class));
 //            }
 //        });
+        fundtransfer = findViewById(R.id.fundtransfer);
+        fundtransfer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, Fundtransfertodownline.class));
+            }
+        });
 
         bal_add_online = findViewById(R.id.bal_add_online);
         bal_add_online.setOnClickListener(new View.OnClickListener() {
@@ -635,7 +644,7 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
                 if (!result.equals("")) {
                     try {
                         JSONObject jsonObject = new JSONObject(result);
-                        Log.e("TAG", "onPostExecuteee: "+result );
+               //         Log.e("TAG", "onPostExecuteee: "+result );
 
                         if (jsonObject.has("status")) {
                             if (jsonObject.getString("status").equalsIgnoreCase("txn")) {

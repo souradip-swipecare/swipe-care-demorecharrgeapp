@@ -19,6 +19,7 @@
     <string name="select_bank">Select Bank</string>
     <string name="please_enter_mobile_number">Please enter a valid Mobile  10  digit no or 16/17 digit lpg id </string>
     <string name="please_enter_a_valid_mobile_no">Amount should be  equal or more than 1o</string>
+    <string name="please_enter_remark">Remark should not be empty</string>
     <string name="please_enter_a_valid_utr_no">Amount should be  equal or more than 1o</string>
 
     <string name="please_select_operator">Please select operator</string>

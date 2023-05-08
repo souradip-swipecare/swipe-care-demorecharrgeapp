@@ -70,6 +70,9 @@
             android:name="com.swipecare.payments.userview.Userviewactivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".Fundtransfertodownline"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".MoneyTransfer.SenderActivity"
             android:label="Remitter" />
         <activity android:name=".PanCards.PanCard" />

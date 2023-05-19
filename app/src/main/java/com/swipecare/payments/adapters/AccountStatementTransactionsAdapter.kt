@@ -40,7 +40,7 @@ class AccountStatementTransactionsAdapter(val resources: Resources) :
             binding.balance.text = "${accountStatementTransaction.balance}"
             binding.profit.text = accountStatementTransaction.profit.toString()
 
-            when (accountStatementTransaction.status.lowercase()) {
+            when (accountStatementTransaction.status!!?.lowercase()) {
                 "processing", "pending" -> binding.cardView9.setCardBackgroundColor(resources.getColor(
                     R.color.orange))
                 "failed" -> binding.cardView9.setCardBackgroundColor(resources.getColor(R.color.red))

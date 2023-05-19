@@ -412,7 +412,7 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
 //        toggle.syncState();
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.hambergrc);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.swipe_icohn);
 
 
 //        navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -539,28 +539,28 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
 //        return true;
 //    }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == INTENT_CODE) {
-            if (requestCode == RESULT_OK) {
-                Toast.makeText(this, data.getStringExtra("StatusCode") + "\n" + data.getStringExtra("Message"), Toast.LENGTH_LONG).show();
-            } else {
-                Toast.makeText(this, data.getStringExtra("StatusCode") + "\n" + data.getStringExtra("Message"), Toast.LENGTH_LONG).show();
-            }
-        }
-
-        if (requestCode == ONBOARDING_STATUS_RESULT && resultCode == RESULT_OK && data != null) {
-            boolean status = data.getBooleanExtra("status", false);
-            int response = data.getIntExtra("response", 0);
-            String message = data.getStringExtra("message");
-            String detailedResponse = "Status: " + status + ",  " +
-                    "Response: " + response + ", " +
-                    "Message: " + message;
-            Toast.makeText(this, detailedResponse, Toast.LENGTH_LONG).show();
-        }
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//
+//        if (requestCode == INTENT_CODE) {
+//            if (requestCode == RESULT_OK) {
+//                Toast.makeText(this, data.getStringExtra("StatusCode") + "\n" + data.getStringExtra("Message"), Toast.LENGTH_LONG).show();
+//            } else {
+//                Toast.makeText(this, data.getStringExtra("StatusCode") + "\n" + data.getStringExtra("Message"), Toast.LENGTH_LONG).show();
+//            }
+//        }
+//
+//        if (requestCode == ONBOARDING_STATUS_RESULT && resultCode == RESULT_OK && data != null) {
+//            boolean status = data.getBooleanExtra("status", false);
+//            int response = data.getIntExtra("response", 0);
+//            String message = data.getStringExtra("message");
+//            String detailedResponse = "Status: " + status + ",  " +
+//                    "Response: " + response + ", " +
+//                    "Message: " + message;
+//            Toast.makeText(this, detailedResponse, Toast.LENGTH_LONG).show();
+//        }
+//    }
 
 //    @Override
 //    public void onSliderClick(BaseSliderView slider) {
@@ -902,15 +902,15 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
 
 
 
-                            JSONObject active = jsonObject.getJSONObject("company");
-                            String upi_status = active.getString("upi_status");
-                            String bharat_status = active.getString("bharat_status");
+//                            JSONObject active = jsonObject.getJSONObject("company");
+//                            String upi_status = active.getString("upi_status");
+//                            String bharat_status = active.getString("bharat_status");
 
 
 
 
                             SharePrfeManager.getInstance(MainActivity.this).mSaveUserData(username, password, id, name, email, mobile, mainwallet, aepsbalance,
-                                    role_id, parent_id, status, company_id, shopname, apptoken, utiid, utiidtxnid, utiidstatus, tokenamount, account, bank, ifsc, aepsid,upi_status,bharat_status,address,aadharcard,pancard,state,pincode);
+                                    role_id, parent_id, status, company_id, shopname, apptoken, utiid, utiidtxnid, utiidstatus, tokenamount, account, bank, ifsc, aepsid,address,aadharcard,pancard,state,pincode);
 
                             mGetBalance(SharePrfeManager.getInstance(MainActivity.this).mGetappToken(), SharePrfeManager.getInstance(MainActivity.this).mGetUserId());
 

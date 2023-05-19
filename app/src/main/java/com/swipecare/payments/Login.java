@@ -254,12 +254,12 @@ public class Login extends AppCompatActivity {
                             String state = userdata.getString("state");
                             String pincode = userdata.getString("pincode");
                             JSONObject active = userdata.getJSONObject("company");
-                            String upi_status = active.getString("upi_status");
-                            String bharat_status = active.getString("bharat_status");
+//                            String upi_status = active.getString("upi_status");
+//                            String bharat_status = active.getString("bharat_status");
 
 
                             SharePrfeManager.getInstance(Login.this).mSaveUserData(username, password, String.valueOf(id), name, email, mobile, mainwallet, aepsbalance,
-                                    role_id, parent_id, status, company_id, shopname, apptoken, utiid, utiidtxnid, utiidstatus, tokenamount, account, bank, ifsc, aepsid, upi_status, bharat_status,address,aadharcard,pancard,state,pincode);
+                                    role_id, parent_id, status, company_id, shopname, apptoken, utiid, utiidtxnid, utiidstatus, tokenamount, account, bank, ifsc, aepsid, address,aadharcard,pancard,state,pincode);
                             startActivity(new Intent(Login.this, MainActivity.class));
                         } else {
                             Toast.makeText(Login.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();

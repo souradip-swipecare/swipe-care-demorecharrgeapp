@@ -49,7 +49,7 @@ public class SharePrfeManager {
     }
 
     public static String mGetBaseUrl() {
-        return "https://rechargepay.site/service/";
+        return "https://rechargedemo.swipecare.in/";
     }
 
     public String mGetMainBalance() {
@@ -66,7 +66,7 @@ public class SharePrfeManager {
 
     public void mSaveUserData(String username, String password, String id, String name, String email, String mobile, String mainwallet, String aepsbalance, String role_id, String parent_id,
                               String status, String company_id, String shopname, String apptoken,
-                              String utiid, String utiidtxnid, String utiidstatus, String tokenamount, String account, String bank, String ifsc, String aepsid, String upi_status, String bharat_status,String address,String aadharcard,String pancard,String state,String pincode) {
+                              String utiid, String utiidtxnid, String utiidstatus, String tokenamount, String account, String bank, String ifsc, String aepsid,String address,String aadharcard,String pancard,String state,String pincode) {
         SharedPreferences sharedPreferences = mContext.getSharedPreferences(SHARE_PREFRERENCE, 0);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("username", username);
@@ -91,8 +91,7 @@ public class SharePrfeManager {
         editor.putString("bank", bank);
         editor.putString("ifsc", ifsc);
         editor.putString("aepsid", aepsid);
-        editor.putString("upi_status", upi_status);
-        editor.putString("bharat_status", bharat_status);
+
 
         editor.putString("address", address);
         editor.putString("aadharcard", aadharcard);

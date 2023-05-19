@@ -48,7 +48,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="130dp"
-                android:src="@drawable/companylogorc" />
+                android:src="@drawable/swipe_icon" />
 
             <TextView
                 android:id="@+id/text"
@@ -242,7 +242,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textt"
         android:layout_centerHorizontal="true"
-        android:text="RECHARGE PAY "
+        android:text="SWIPE CARE IT SOLUTIONS "
         android:textColor="#3322AE"
         android:textSize="22sp"
         android:textStyle="bold" />
